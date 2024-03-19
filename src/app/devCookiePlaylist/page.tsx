@@ -1,4 +1,4 @@
-import PlaylistSearchform from "@/devCookiePlaylistComponents/PlaylistSearchform";
+import PlaylistSearchform from "@/app/devCookiePlaylistComponents/PlaylistSearchform";
 import { usePathname } from "next/navigation";
 
 function page() {
