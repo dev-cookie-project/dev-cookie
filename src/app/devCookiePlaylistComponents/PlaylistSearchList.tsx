@@ -28,14 +28,14 @@ function PlaylistSearchList() {
 
   return (
     <>
-      <div className="grid grid-rows-3 grid-cols-4">
+      <div className="grid grid-rows-3 grid-cols-2 gap-4">
         {videos.map((video) => (
           <>
             <div className="card card-compact w-80 bg-base-100 shadow-xl text-base">
               <figure>
                 <iframe
-                  width={100}
-                  height={80}
+                  width={300}
+                  height={200}
                   src={`https://www.youtube.com/embed/${video.id.videoId}`}
                 />
               </figure>
