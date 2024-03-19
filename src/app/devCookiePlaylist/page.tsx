@@ -1,8 +1,12 @@
-"use client";
-import React, { useState } from "react";
+import PlaylistSearchform from "@/devCookiePlaylistComponents/PlaylistSearchform";
+import { usePathname } from "next/navigation";
 
 function page() {
-  return <div>page</div>;
+  return (
+    <div>
+      <PlaylistSearchform />
+    </div>
+  );
 }
 
 export default page;
