@@ -28,13 +28,19 @@ function PlaylistSearchList() {
 
   return (
     <>
-      <div>
+      <div className="grid grid-rows-3 grid-cols-4">
         {videos.map((video) => (
           <>
-            <div className="card card-compact w-96 bg-base-100 shadow-xl">
-              <div>{video.id.videoId}</div>
-              <div className="card-body">
-                <h2 className="card-title">{video.snippet.title}</h2>
+            <div className="card card-compact w-80 bg-base-100 shadow-xl text-base">
+              <figure>
+                <iframe
+                  width={100}
+                  height={80}
+                  src={`https://www.youtube.com/embed/${video.id.videoId}`}
+                />
+              </figure>
+              <div className="card-body text-base">
+                <h2 className="card-title text-sm">{video.snippet.title}</h2>
                 <p>{video.snippet.description}</p>
               </div>
             </div>
