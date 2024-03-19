@@ -1,10 +1,7 @@
 export type video = {
   kind: string;
   etag: string;
-  id: {
-    kind: string;
-    videoId: string;
-  };
+  id: string;
   snippet: {
     publishedAt: string;
     channelId: string;
