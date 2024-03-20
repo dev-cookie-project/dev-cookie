@@ -10,6 +10,7 @@ function PlaylistSearchform() {
     e.preventDefault();
     setSearchWord(e.target.value);
   };
+
   const searchVideoHandler = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {

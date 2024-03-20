@@ -1,5 +1,6 @@
 "use client";
 import type { video } from "@/types/playlistTypeIndex";
+import { youtube, youtube_v3 } from "@googleapis/youtube";
 
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -11,7 +12,7 @@ function PlaylistSearchList() {
   useEffect(() => {
     const getYoutubePlaylist = async () => {
       const response = await fetch(
-        `https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=5&q=${id}&type=video&key=${process.env.NEXT_PUBLIC_GOOGLE_API_KEY}`
+        `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q={${id}}&order=relevance&key=${process.env.NEXT_PUBLIC_GOOGLE_API_KEY}`
       );
       const data = await response.json();
 
@@ -23,7 +24,7 @@ function PlaylistSearchList() {
     };
     getYoutubePlaylist();
   }, [id]);
-
+  console.log(videos);
   return (
     <>
       <div className="grid grid-rows-3 grid-cols-2 gap-4">
