@@ -41,7 +41,9 @@ function PlaylistSearchList() {
                 <h2 className="card-title text-sm">{video.snippet.title}</h2>
               </div>
               <div className="card-actions justify-end">
-                <button className="btn btn-primary">Add List</button>
+                <button className="btn btn-outline btn-success">
+                  Add List
+                </button>
               </div>
             </div>
           </>
