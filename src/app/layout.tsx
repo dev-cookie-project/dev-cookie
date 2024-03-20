@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import "./sherd/reset.css";
 import "./globals.css";
-import "./reset.css";
-import Footer from "@/sherd/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,8 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={inter.className}>{children}</body>
-      <Footer />
+      <body>{children}</body>
     </html>
   );
 }
