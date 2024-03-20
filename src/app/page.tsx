@@ -1,5 +1,9 @@
-import Image from "next/image";
+import CommentList from "@/components/comment/CommentList";
 
 export default function Home() {
-  return <div>123</div>;
+  return (
+    <div>
+      <CommentList />
+    </div>
+  );
 }
