@@ -9,7 +9,7 @@ function PlaylistSearchList() {
   const [videos, setVideos] = useState<video[]>([]);
 
   useEffect(() => {
-    const getPlaylist = async () => {
+    const getYoutubePlaylist = async () => {
       const response = await fetch(
         `https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=5&q=${id}&type=video&key=${process.env.NEXT_PUBLIC_GOOGLE_API_KEY}`
       );
@@ -21,13 +21,13 @@ function PlaylistSearchList() {
       const playlist = data.items;
       setVideos(playlist);
     };
-    getPlaylist();
+    getYoutubePlaylist();
   }, [id]);
 
   return (
     <>
       <div className="grid grid-rows-3 grid-cols-2 gap-4">
-        {videos?.map((video) => (
+        {videos.map((video) => (
           <>
             <div className="card card-compact w-80 bg-base-100 shadow-xl text-base">
               <figure>
@@ -39,6 +39,9 @@ function PlaylistSearchList() {
               </figure>
               <div className="card-body text-base">
                 <h2 className="card-title text-sm">{video.snippet.title}</h2>
+              </div>
+              <div className="card-actions justify-end">
+                <button className="btn btn-primary">Add List</button>
               </div>
             </div>
           </>

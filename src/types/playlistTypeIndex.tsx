@@ -31,3 +31,9 @@ export type video = {
     publishTime: string;
   };
 };
+
+export type playlist = {
+  userID: number;
+  created_at: string;
+  youtube: string;
+};
