@@ -56,7 +56,14 @@ const CommentList: React.FC = () => {
                 </>
               ) : (
                 <>
-                  {comment.content}
+                  <div>
+                    <span>작성자 ID: {comment.userId}</span>
+                    <br />
+                    <p>{comment.content}</p>
+                    <span>
+                      작성일: {new Date(comment.createdAt).toLocaleString()}
+                    </span>
+                  </div>
                   <button onClick={() => handleEdit(comment)}>수정</button>
                   <button onClick={() => handleRemoveComment(comment.id)}>
                     삭제
