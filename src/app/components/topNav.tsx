@@ -1,11 +1,13 @@
 import React from "react";
 
+import Link from "next/link";
+
 export default function TopNav() {
   return (
     <>
       <div className="navbar bg-base-100">
         <div className="flex-1">
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+          <a className="btn btn-ghost text-xl">DevCookie</a>
         </div>
         <div className="flex-none gap-2">
           <div className="form-control">
@@ -42,7 +44,7 @@ export default function TopNav() {
                 <a>Settings</a>
               </li>
               <li>
-                <a>LogIn</a>
+                <Link href="/devCookieAuth/devCookieLogIn">LogIn</Link>
               </li>
             </ul>
           </div>
