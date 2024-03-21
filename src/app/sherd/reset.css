@@ -107,7 +107,7 @@ section {
 }
 body {
   line-height: 1;
-  height: 900px;
+  height: 100%;
   width: 100%;
 }
 ol,
@@ -137,6 +137,6 @@ a {
   text-decoration: none;
 }
 html {
-  height: 1080;
-  width: 1920;
+  height: 100%;
+  width: 100%;
 }

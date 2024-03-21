@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./sherd/reset.css";
 import "./globals.css";
 import Footer from "./sherd/Footer";
+import Aside from "./sherd/Aside";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,6 +20,7 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body>
+        <Aside />
         {children}
         <Footer />
       </body>
