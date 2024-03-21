@@ -7,16 +7,10 @@ import { supabase } from "@/app/lib/supabase/supabase";
 import Link from "next/link";
 
 //회원가입
-const Login = () => {
-  const [nickname, setNickname] = useState<string>("");
+const Signup = () => {
+  // const [nickname, setNickname] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-
-  useEffect(() => {
-    console.log(nickname);
-    console.log(email);
-    console.log(password);
-  }, [nickname, email, password]);
 
   const handleSumbit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -35,7 +29,7 @@ const Login = () => {
     } catch (error) {
       console.error("error :>>", error);
     }
-    setNickname("");
+    // setNickname("");
     setEmail("");
     setPassword("");
   };
@@ -65,22 +59,6 @@ const Login = () => {
     });
   }
 
-  // 로그아웃하는 함수
-  // async function signOut() {
-  //   try {
-  //     // Supabase를 이용해 로그아웃을 시도
-  //     const { error } = await supabase.auth.signOut();
-  //     alert("로그아웃이 완료되었습니다.");
-  //     if (error) {
-  //       console.error("Error signing out:", error.message);
-  //     }
-  //     // 사용자 정보를 초기화합니다.
-  //     setUser(null);
-  //   } catch (error) {
-  //     console.error("Error signing out:", error);
-  //   }
-  // }
-
   return (
     <div>
       <form onSubmit={handleSumbit}>
@@ -98,10 +76,10 @@ const Login = () => {
             type="text"
             className="grow"
             placeholder="닉네임을 입력해주세요."
-            value={nickname}
-            onChange={(e) => {
-              setNickname(e.target.value);
-            }}
+            // value={nickname}
+            // onChange={(e) => {
+            //   setNickname(e.target.value);
+            // }}
           />
         </label>
         <label className="input input-bordered flex items-center gap-2">
@@ -155,11 +133,9 @@ const Login = () => {
         </button>
       </form>
       <button onClick={signUpWithGoogle}>구글</button>
-      {/* <img src={user.raw_user_meta_data.avatar_url} alt="Avatar"></img> */}
       <button onClick={signUpWithGithub}>깃헙</button>
-      {/* <button onClick={signOut}>로그아웃</button> */}
     </div>
   );
 };
 
-export default Login;
+export default Signup;
