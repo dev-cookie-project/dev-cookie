@@ -20,8 +20,7 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body>
-        <Aside />
-        {children}
+        <Aside props={children} />
         <Footer />
       </body>
     </html>

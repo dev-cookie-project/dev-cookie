@@ -2,12 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-function Aside() {
+function Aside({ props }: { props: React.ReactNode }) {
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col items-center justify-center">
-        여기에 내용이 들어간다.
+        {props}
       </div>
 
       <div className="drawer-side ">
