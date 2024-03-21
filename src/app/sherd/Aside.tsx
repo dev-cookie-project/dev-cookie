@@ -6,9 +6,7 @@ function Aside({ props }: { props: React.ReactNode }) {
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content flex flex-col items-center justify-center">
-        {props}
-      </div>
+      <div className="drawer-content">{props}</div>
 
       <div className="drawer-side ">
         {/* <Image
@@ -28,7 +26,7 @@ function Aside({ props }: { props: React.ReactNode }) {
             <a>모임 만들기</a>
           </li>
           <li>
-            <Link href={"/devCookiePlaylist"}>노동요 들으러 가기</Link>
+            <Link href={"/devCookiePlaylist/노동요"}>노동요 들으러 가기</Link>
           </li>
         </ul>
       </div>
