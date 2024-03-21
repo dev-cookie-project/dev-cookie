@@ -18,8 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body>{children}</body>
-      <Footer />
+      <body>
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

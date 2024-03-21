@@ -39,3 +39,7 @@ export type playlist = {
   userID: number;
   video: video;
 };
+
+export type FindPlayList = {
+  youtube: string;
+};

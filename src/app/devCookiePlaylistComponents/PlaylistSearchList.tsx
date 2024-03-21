@@ -1,5 +1,5 @@
 "use client";
-import type { video, playlist } from "@/types/playlistTypeIndex";
+import type { video } from "@/types/playlistTypeIndex";
 
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -8,7 +8,7 @@ import useMyPlayList from "../hooks/useMyPlayList";
 function PlaylistSearchList() {
   const { id } = useParams();
   const [videos, setVideos] = useState<video[]>([]);
-  const { addPlaylist } = useMyPlayList();
+  const { addNewPlaylist } = useMyPlayList();
   const userID = 22222;
 
   useEffect(() => {
@@ -31,7 +31,7 @@ function PlaylistSearchList() {
     <>
       <div className="grid grid-rows-3 grid-cols-2 gap-4">
         {videos.map((video) => (
-          <>
+          <div key={video.id.videoId}>
             <div className="card card-compact w-80 bg-base-100 shadow-xl text-base">
               <figure>
                 <iframe
@@ -46,7 +46,7 @@ function PlaylistSearchList() {
               <div className="card-actions justify-end">
                 <button
                   onClick={() => {
-                    addPlaylist({ userID, video });
+                    addNewPlaylist({ userID, video });
                   }}
                   className="btn btn-outline btn-success"
                 >
@@ -54,7 +54,7 @@ function PlaylistSearchList() {
                 </button>
               </div>
             </div>
-          </>
+          </div>
         ))}
       </div>
     </>
