@@ -9,8 +9,8 @@ function Footer() {
           <Image
             src="/cookies.png"
             alt="cookie"
-            width="80"
-            height="80"
+            width="50"
+            height="50"
             className="fill-current"
           />
           <p>DevCookie corporation</p>

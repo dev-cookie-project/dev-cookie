@@ -1,13 +1,15 @@
 "use client";
-import type { video } from "@/types/playlistTypeIndex";
-import { youtube, youtube_v3 } from "@googleapis/youtube";
+import type { video, playlist } from "@/types/playlistTypeIndex";
 
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import useMyPlayList from "../hooks/useMyPlayList";
 
 function PlaylistSearchList() {
   const { id } = useParams();
   const [videos, setVideos] = useState<video[]>([]);
+  const { addPlaylist } = useMyPlayList();
+  const userID = 22222;
 
   useEffect(() => {
     const getYoutubePlaylist = async () => {
@@ -35,14 +37,19 @@ function PlaylistSearchList() {
                 <iframe
                   width={300}
                   height={200}
-                  src={`https://www.youtube.com/embed/${video.id}`}
+                  src={`https://www.youtube.com/embed/${video.id.videoId}`}
                 />
               </figure>
               <div className="card-body text-base">
                 <h2 className="card-title text-sm">{video.snippet.title}</h2>
               </div>
               <div className="card-actions justify-end">
-                <button className="btn btn-outline btn-success">
+                <button
+                  onClick={() => {
+                    addPlaylist({ userID, video });
+                  }}
+                  className="btn btn-outline btn-success"
+                >
                   Add List
                 </button>
               </div>

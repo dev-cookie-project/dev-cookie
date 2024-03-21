@@ -19,11 +19,11 @@ function useMyPlayList() {
     if (error) return alert("error 발생!");
   };
 
-  const addPlaylist = async () => {
+  const addPlaylist = async ({ userID, video }: playlist) => {
     const { data, error } = await supabase
       .from("musicList")
       .insert([
-        { userID: 22222, created_at: new Date(), youtube: "입력 시도2" },
+        { userID: userID, created_at: new Date(), youtube: video.id.videoId },
       ])
       .select();
   };

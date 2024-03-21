@@ -1,7 +1,10 @@
 export type video = {
   kind: string;
   etag: string;
-  id: string;
+  id: {
+    kind: string;
+    videoId: string;
+  };
   snippet: {
     publishedAt: string;
     channelId: string;
@@ -34,6 +37,5 @@ export type video = {
 
 export type playlist = {
   userID: number;
-  created_at: string;
-  youtube: string;
+  video: video;
 };
