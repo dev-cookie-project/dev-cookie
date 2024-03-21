@@ -1,8 +1,24 @@
 import React from "react";
+import { supabase } from "../lib/supabase";
 
 import Link from "next/link";
 
 export default function TopNav() {
+  //   async function Signout(e: React.MouseEventHandler) {
+  //     const { error } = await supabase.auth.signOut();
+
+  //     const { data } = supabase.auth.onAuthStateChange((event, session) => {
+  //       if (event === "SIGNED_OUT") {
+  //         // clear local and session storage
+  //         [window.localStorage, window.sessionStorage].forEach((storage) => {
+  //           Object.entries(storage).forEach(([key]) => {
+  //             storage.removeItem(key);
+  //           });
+  //         });
+  //       }
+  //     });
+  //   }
+
   return (
     <>
       <div className="navbar bg-base-100">
@@ -39,7 +55,7 @@ export default function TopNav() {
                 </a>
               </li>
               <li>
-                <a>Settings</a>
+                <a>LogOut</a>
               </li>
               <li>
                 <Link href="/devCookieAuth/devCookieLogIn">LogIn</Link>

@@ -8,60 +8,71 @@ import Link from "next/link";
 
 import { atom, useAtom } from "jotai";
 
+import { Auth } from "@supabase/auth-ui-react";
+import { useRouter } from "next/navigation";
+
 export const emailAtom = atom("");
 export const passwordAtom = atom("");
 
 //회원가입
 const Login = () => {
-  const [email, setEmail] = useAtom(emailAtom);
-  const [password, setPassword] = useAtom(passwordAtom);
-
-  async function handleLogin(e: React.FormEvent) {
-    e.preventDefault();
-    try {
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
-      console.log(data);
-      if (error) {
-        console.error(error);
-        alert("아이디와 비밀번호를 확인해주세요");
-      } else {
-        alert("로그인이 완료되었습니다.");
-      }
-    } catch (error) {
-      console.error(error);
+  const router = useRouter();
+  supabase.auth.onAuthStateChange(async (event) => {
+    if (event !== "SIGNED_OUT") {
+      router.push("/");
+    } else {
+      router.push("/devCookieAuth/devCookieLogIn");
     }
-    // setNickname("");
-    setEmail("");
-    setPassword("");
-  }
+  });
+  // const [email, setEmail] = useAtom(emailAtom);
+  // const [password, setPassword] = useAtom(passwordAtom);
 
-  async function signUpWithGithub() {
-    try {
-      // Supabase를 이용해 GitHub OAuth를 통해 로그인을 시도합니다.
-      const { data, error } = await supabase.auth.signInWithOAuth({
-        provider: "github",
-      });
+  // async function handleLogin(e: React.FormEvent) {
+  //   e.preventDefault();
+  //   try {
+  //     const { data, error } = await supabase.auth.signInWithPassword({
+  //       email,
+  //       password,
+  //     });
+  //     console.log(data);
+  //     if (error) {
+  //       console.error(error);
+  //       alert("아이디와 비밀번호를 확인해주세요");
+  //     } else {
+  //       alert("로그인이 완료되었습니다.");
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  //   // setNickname("");
+  //   setEmail("");
+  //   setPassword("");
+  // }
 
-      console.log(data);
-      alert("로그인이 완료되었습니다.");
-      // 에러가 발생하면 콘솔에 로그를 출력합니다.
-      if (error) {
-        console.error("Error signing in with GitHub:", error.message);
-      }
-    } catch (error) {
-      console.error("Error signing in with GitHub:", error);
-    }
-  }
+  // async function signUpWithGithub() {
+  //   try {
+  //     // Supabase를 이용해 GitHub OAuth를 통해 로그인을 시도합니다.
+  //     const { data, error } = await supabase.auth.signInWithOAuth({
+  //       provider: "github",
+  //     });
 
-  //Google로 회원가입
-  async function signUpWithGoogle() {
-    supabase.auth.signInWithOAuth({
-      provider: "google",
-    });
-  }
+  //     console.log(data);
+  //     alert("로그인이 완료되었습니다.");
+  //     // 에러가 발생하면 콘솔에 로그를 출력합니다.
+  //     if (error) {
+  //       console.error("Error signing in with GitHub:", error.message);
+  //     }
+  //   } catch (error) {
+  //     console.error("Error signing in with GitHub:", error);
+  //   }
+  // }
+
+  // //Google로 회원가입
+  // async function signUpWithGoogle() {
+  //   supabase.auth.signInWithOAuth({
+  //     provider: "google",
+  //   });
+  // }
 
   return (
     <div className="card w-100 flex flex-col justify-center item-center">
@@ -73,7 +84,7 @@ const Login = () => {
             <Link href="/devCookieAuth/devCookieJoinUs">회원가입</Link>
           </p>
 
-          <div className="card w-96 bg-base-100 justify-center">
+          {/* <div className="card w-96 bg-base-100 justify-center">
             <form onSubmit={handleLogin}>
               <label className="input input-bordered flex items-center gap-2">
                 <svg
@@ -139,6 +150,16 @@ const Login = () => {
                 </button>
               </div>
             </form>
+          </div> */}
+          <div className="App">
+            <header className="App-header">
+              <Auth
+                supabaseClient={supabase}
+                // appearance={{ theme: ThemeSupa }}
+                theme="dark"
+                providers={["google", "github"]}
+              />
+            </header>
           </div>
         </div>
       </div>
