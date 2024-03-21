@@ -2,7 +2,11 @@
 import React, { useState } from "react";
 import { supabase } from "../../utils/supabaseClient";
 
-const CommentForm: React.FC = () => {
+interface CommentFormProps {
+  onCommentAdded: () => void;
+}
+
+const CommentForm: React.FC<CommentFormProps> = ({ onCommentAdded }) => {
   const [content, setContent] = useState<string>("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -10,7 +14,7 @@ const CommentForm: React.FC = () => {
 
     if (!content.trim()) return;
 
-    const userId = "1";
+    const userId = "1"; // 사용자 인증 로직에 따라 변경될 수 있음
     const createdAt = new Date().toISOString();
 
     try {
@@ -28,11 +32,12 @@ const CommentForm: React.FC = () => {
 
       if (data) {
         console.log("New comment added successfully:", data);
-        setContent("");
       }
     } catch (error) {
       console.error("Error adding comment:", error);
     }
+    setContent("");
+    onCommentAdded(); // 댓글 추가 후 부모 컴포넌트에 알림
   };
 
   return (

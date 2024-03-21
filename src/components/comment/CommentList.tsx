@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { supabase } from "../../utils/supabaseClient";
 import { Comment } from "@/types/comment-types";
+import CommentForm from "./CommentForm";
 
 const CommentList: React.FC = () => {
   const [comments, setComments] = useState<Comment[]>([]);
@@ -21,7 +22,10 @@ const CommentList: React.FC = () => {
 
   const fetchComments = async () => {
     try {
-      const { data, error } = await supabase.from("comments").select("*");
+      const { data, error } = await supabase
+        .from("comments")
+        .select("*")
+        .order("createdAt", { ascending: false });
       if (error) {
         throw error;
       }
@@ -83,9 +87,13 @@ const CommentList: React.FC = () => {
       console.error("Error deleting comment:", error);
     }
   };
+  const handleCommentAdded = () => {
+    fetchComments(); // 댓글이 추가되면 댓글 목록을 새로고침
+  };
 
   return (
     <div>
+      <CommentForm onCommentAdded={handleCommentAdded} />
       {comments.length > 0 ? (
         <ul>
           {comments.map((comment) => (
