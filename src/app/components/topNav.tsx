@@ -6,9 +6,7 @@ export default function TopNav() {
   return (
     <>
       <div className="navbar bg-base-100">
-        <div className="flex-1">
-          <a className="btn btn-ghost text-xl">DevCookie</a>
-        </div>
+        <div className="flex-1"></div>
         <div className="flex-none gap-2">
           <div className="form-control">
             <input
