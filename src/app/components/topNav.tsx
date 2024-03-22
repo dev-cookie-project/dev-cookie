@@ -4,24 +4,25 @@ import { supabase } from "../lib/supabase";
 import Link from "next/link";
 
 export default function TopNav() {
-  //   async function Signout(e: React.MouseEventHandler) {
-  //     const { error } = await supabase.auth.signOut();
+  // const logOut = async () => {
+  //   const { error } = await supabase.auth.signOut();
+  //   alert("로그아웃 되었습니다");
+  // };
 
-  //     const { data } = supabase.auth.onAuthStateChange((event, session) => {
-  //       if (event === "SIGNED_OUT") {
-  //         // clear local and session storage
-  //         [window.localStorage, window.sessionStorage].forEach((storage) => {
-  //           Object.entries(storage).forEach(([key]) => {
-  //             storage.removeItem(key);
-  //           });
-  //         });
-  //       }
-  //     });
-  //   }
+  // const { data: { user } } = await supabase.auth.getUser();
+
+  // const signOut = async () => {
+  //   "use server";
+
+  //   const cookieStore = cookies();
+  //   const supabase = createClient(cookieStore);
+
+  //   await supabase.auth.signOut();
+  // };
 
   return (
     <>
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-base-100 bg-orange-200">
         <div className="flex-1"></div>
         <div className="flex-none gap-2">
           <div className="form-control">
