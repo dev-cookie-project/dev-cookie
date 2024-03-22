@@ -1,12 +1,11 @@
-import React from "react";
-import DevCookieProjectReviewComponents from "../components/projectReview/reviewSearchForm";
-import DevCookieProjectReviewList from "../components/projectReview/projectReviewList";
+import ProjectReviewList from "../components/projectReview/projectReviewList";
+import ProjectReviewComponents from "../components/projectReview/reviewSearchForm";
 
 function page() {
   return (
     <div>
-      <DevCookieProjectReviewComponents />
-      <DevCookieProjectReviewList />
+      <ProjectReviewComponents />
+      <ProjectReviewList />
     </div>
   );
 }

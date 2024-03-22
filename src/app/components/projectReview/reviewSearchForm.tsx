@@ -1,6 +1,6 @@
 import React from "react";
 
-function DevCookieProjectReviewComponents() {
+function ProjectReviewComponents() {
   return (
     <div className="w-128">
       <div className="h-48 w-128 flex flex-row items-center justify-center gap-8 text-black text-2xl bg-orange-300">
@@ -25,4 +25,4 @@ function DevCookieProjectReviewComponents() {
   );
 }
 
-export default DevCookieProjectReviewComponents;
+export default ProjectReviewComponents;

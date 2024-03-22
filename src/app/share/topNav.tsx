@@ -65,13 +65,13 @@ export default function TopNav() {
                     : "opacity-0 pointer-events-none"
                 }
               >
-                <Link href="/devCookieMyPage">Mypage</Link>
+                <Link href="/myPage">Mypage</Link>
               </li>
               <li>
                 {condition ? (
                   <button onClick={signOut}>LogOut</button> // 세션이 있으면 로그아웃 버튼을 표시합니다.
                 ) : (
-                  <Link href="/devCookieAuth/devCookieLogIn">LogIn</Link> // 세션이 없으면 로그인 버튼을 표시합니다.
+                  <Link href="/logIn">LogIn</Link> // 세션이 없으면 로그인 버튼을 표시합니다.
                 )}
               </li>
             </ul>

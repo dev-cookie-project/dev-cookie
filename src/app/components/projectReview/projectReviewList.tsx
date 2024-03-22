@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import useProjectReviewList from "../../../hooks/useProjectReviewList";
 
-function DevCookieProjectReviewList() {
+function ProjectReviewList() {
   const [projectReviewList, setProjectReviewList] = useState<ReviewList>();
   const { getProjectList } = useProjectReviewList();
   const router = useRouter();
@@ -53,4 +53,4 @@ function DevCookieProjectReviewList() {
   );
 }
 
-export default DevCookieProjectReviewList;
+export default ProjectReviewList;

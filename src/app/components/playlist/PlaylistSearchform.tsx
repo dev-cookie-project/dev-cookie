@@ -18,7 +18,7 @@ function PlaylistSearchform() {
     if (!searchWord) {
       return alert("검색어를 입력해주세요.");
     }
-    router.push(`/devCookiePlaylist/${searchWord}`);
+    router.push(`/playlist/${searchWord}`);
     setSearchWord("");
   };
   return (
