@@ -13,4 +13,15 @@ export type Review = {
   ongoing: boolean;
 };
 
-export type ReviewList = Review[];
+export type Reviews = {
+  id: number;
+  userID: number;
+  created_at: string;
+  projectOrStudy: number;
+  title: string;
+  contents: string;
+  heshSelection: string[];
+  ongoing: boolean;
+};
+
+export type ReviewList = Reviews[];
