@@ -1,5 +1,5 @@
 import React from "react";
-import DetailpageContents from "../components/detailpage/detailpageContents";
+import DetailpageContents from "../components/detailpage/DetailpageContents";
 
 function page() {
   return (
