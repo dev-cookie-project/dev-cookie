@@ -10,9 +10,11 @@
     "build-css": "tailwindcss -i ./src/style.css -o ./dist/style.css"
   },
   "dependencies": {
-    "@tanstack/react-query": "^5.28.4",
+    "@supabase/auth-ui-react": "^0.4.7",
+    "@supabase/supabase-js": "^2.39.8",
+    "jotai": "^2.7.1",
     "next": "^14.1.3",
-    "react": "^18",
+    "react": "^18.2.0",
     "react-dom": "^18"
   },
   "devDependencies": {
@@ -21,10 +23,16 @@
     "@types/react-dom": "^18",
     "@types/tailwindcss": "^3.1.0",
     "autoprefixer": "^10.0.1",
+    "daisyui": "^4.7.3",
     "eslint": "^8",
     "eslint-config-next": "14.1.3",
     "postcss": "^8",
+<<<<<<< HEAD
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
+=======
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5.4.2"
+>>>>>>> 96284265335cd308f5fa1a42d1548c4274d9d13f
   }
 }

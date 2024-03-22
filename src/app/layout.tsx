@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import "./sherd/reset.css";
 import "./globals.css";
+import Footer from "./sherd/Footer";
+import Aside from "./sherd/Aside";
+import TopNav from "./sherd/topNav";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,8 +19,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="ko">
+      <body>
+        <TopNav />
+        <Aside props={children} />
+        <Footer />
+      </body>
     </html>
   );
 }
