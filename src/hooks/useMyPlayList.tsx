@@ -31,7 +31,6 @@ function useMyPlayList() {
       .select(`youtube`)
       .eq("userID", userID)
       .eq("youtube", video.id.videoId);
-    console.log(findPlayListData);
 
     if (findPlayListData === null || findPlayListData.length === 0) {
       alert("추가되었습니다.");
@@ -39,7 +38,6 @@ function useMyPlayList() {
       return findPlayListData;
     }
     if (!!findPlayListData) {
-      console.log(findPlayListData);
       alert("이미 추가된 목록입니다.");
       return findPlayListData;
     }

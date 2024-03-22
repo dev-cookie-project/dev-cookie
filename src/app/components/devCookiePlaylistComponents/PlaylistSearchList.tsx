@@ -26,7 +26,7 @@ function PlaylistSearchList() {
     };
     getYoutubePlaylist();
   }, [id]);
-  console.log(videos);
+
   return (
     <>
       <div className="h-200 w-128 bg-orange-400 py-8 px-20">
