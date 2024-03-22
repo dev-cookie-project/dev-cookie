@@ -1,5 +1,5 @@
 "use client";
-import useProjectReviewList from "@/hooks/useProjectReviewList";
+import useProjectReviewList from "../../../hooks/useProjectReviewList";
 import type { ReviewList } from "@/types/projectReviewTypeIndex";
 import Image from "next/image";
 import { useEffect, useState } from "react";
