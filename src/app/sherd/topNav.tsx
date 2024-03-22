@@ -6,6 +6,7 @@ import { supabase } from "../lib/supabase";
 import Link from "next/link";
 import Image from "next/image";
 import { Session } from "@supabase/supabase-js";
+import cookies from "../../../public/cookies.png";
 
 export default function TopNav() {
   const [condition, setCondition] = useState<Session | null>(null);
@@ -50,7 +51,7 @@ export default function TopNav() {
                   width="10"
                   height="10"
                   alt="Tailwind CSS Navbar component"
-                  src=""
+                  src={cookies}
                 />
               </div>
             </div>
