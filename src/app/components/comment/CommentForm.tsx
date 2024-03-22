@@ -25,14 +25,6 @@ const CommentForm: React.FC<CommentFormProps> = ({ onCommentAdded }) => {
           createdAt,
         },
       ]);
-
-      if (error) {
-        throw error;
-      }
-
-      if (data) {
-        console.log("New comment added successfully:", data);
-      }
     } catch (error) {
       console.error("Error adding comment:", error);
     }
