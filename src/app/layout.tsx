@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./sherd/reset.css";
+import "./share/reset.css";
 import "./globals.css";
-import Footer from "./sherd/Footer";
-import Aside from "./sherd/Aside";
-import TopNav from "./sherd/topNav";
+import Footer from "./share/Footer";
+import Aside from "./share/Aside";
+import TopNav from "./share/topNav";
 
 const inter = Inter({ subsets: ["latin"] });
 
