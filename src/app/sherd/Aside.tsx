@@ -18,16 +18,16 @@ function Aside({ props }: { props: React.ReactNode }) {
             <Link href={"/"}>Home</Link>
           </li>
           <li>
-            <Link href={"/devCookieProject"}>프로젝트/스터디 찾기</Link>
+            <Link href={"/project"}>프로젝트/스터디 찾기</Link>
           </li>
           <li>
             <a>모임 만들기</a>
           </li>
           <li>
-            <Link href={"/devCookieProjectReview"}>프로젝트 리뷰</Link>
+            <Link href={"/projectReview"}>프로젝트 리뷰</Link>
           </li>
           <li>
-            <Link href={"/devCookiePlaylist/노동요"}>노동요 들으러 가기</Link>
+            <Link href={"/playlist/노동요"}>노동요 들으러 가기</Link>
           </li>
         </ul>
       </div>
