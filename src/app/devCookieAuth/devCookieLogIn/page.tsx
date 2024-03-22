@@ -138,6 +138,7 @@ const Login = () => {
               >
                 로그인
               </button>
+
               <div className="card w-60 bg-base-100">
                 <button className="btn btn-outline" onClick={signUpWithGoogle}>
                   구글

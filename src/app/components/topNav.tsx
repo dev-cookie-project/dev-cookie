@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { supabase } from "../lib/supabase";
 
@@ -19,6 +21,10 @@ export default function TopNav() {
 
   //   await supabase.auth.signOut();
   // };
+  async function signOut() {
+    const { error } = await supabase.auth.signOut();
+    if (error) console.error("Logout failed:", error);
+  }
 
   return (
     <>
@@ -56,7 +62,7 @@ export default function TopNav() {
                 </a>
               </li>
               <li>
-                <a>LogOut</a>
+                <button onClick={signOut}>LogOut</button>
               </li>
               <li>
                 <Link href="/devCookieAuth/devCookieLogIn">LogIn</Link>
