@@ -1,5 +1,4 @@
 import { Playlist } from "@/types/playlistTypeIndex";
-import { createClient } from "@supabase/supabase-js";
 import { useState } from "react";
 
 import { supabase } from "./useSupabase";
