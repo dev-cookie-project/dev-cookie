@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useId } from "react";
 
 import { supabase } from "@/app/lib/supabase/supabase";
 
@@ -9,6 +9,7 @@ const Signup = () => {
   // const [nickname, setNickname] = useState<string>("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const id = useId();
 
   const handleSumbit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -76,7 +77,10 @@ const Signup = () => {
             // }}
           />
         </label>
-        <label className="input input-bordered flex items-center gap-2">
+        <label
+          htmlFor={id + "email"}
+          className="input input-bordered flex items-center gap-2"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -87,6 +91,7 @@ const Signup = () => {
             <path d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
           </svg>
           <input
+            id={id + "email"}
             type="text"
             className="grow"
             placeholder="이메일을 입력해주세요."
@@ -98,7 +103,10 @@ const Signup = () => {
           />
         </label>
 
-        <label className="input input-bordered flex items-center gap-2">
+        <label
+          htmlFor={id + "password"}
+          className="input input-bordered flex items-center gap-2"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -112,6 +120,7 @@ const Signup = () => {
             />
           </svg>
           <input
+            id={id + "password"}
             type="password"
             className="grow"
             placeholder="비밀번호를 입력해주세요."

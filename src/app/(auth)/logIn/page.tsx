@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useId } from "react";
 
 import { supabase } from "@/app/lib/supabase/supabase";
 
@@ -11,6 +11,7 @@ import { useRouter } from "next/navigation";
 //회원가입
 const Login = () => {
   const router = useRouter();
+  const id = useId();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -35,14 +36,12 @@ const Login = () => {
         alert("아이디와 비밀번호를 확인해주세요");
       } else {
         alert("로그인이 완료되었습니다.");
-        router.push("/");
       }
     } catch (error) {
       console.error(error);
     }
     // setNickname("");
-    setEmail("");
-    setPassword("");
+    router.push("/");
   }
 
   async function signUpWithGithub() {
@@ -52,7 +51,6 @@ const Login = () => {
         provider: "github",
       });
       alert("로그인이 완료되었습니다.");
-      // 에러가 발생하면 콘솔에 로그를 출력합니다.
       if (error) {
         console.error("Error signing in with GitHub:", error.message);
       }
@@ -80,7 +78,10 @@ const Login = () => {
 
           <div className="card w-96 bg-base-100 justify-center">
             <form onSubmit={handleLogin}>
-              <label className="input input-bordered flex items-center gap-2">
+              <label
+                htmlFor={id + "Email"}
+                className="input input-bordered flex items-center gap-2"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 16 16"
@@ -91,6 +92,7 @@ const Login = () => {
                   <path d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
                 </svg>
                 <input
+                  id={id + "Email"}
                   type="text"
                   className="grow"
                   placeholder="이메일을 입력해주세요."
@@ -102,7 +104,10 @@ const Login = () => {
                 />
               </label>
 
-              <label className="input input-bordered flex items-center gap-2">
+              <label
+                htmlFor={id + "password"}
+                className="input input-bordered flex items-center gap-2"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 16 16"
@@ -116,6 +121,7 @@ const Login = () => {
                   />
                 </svg>
                 <input
+                  id={id + "password"}
                   type="password"
                   className="grow"
                   placeholder="비밀번호를 입력해주세요."
