@@ -1,14 +1,29 @@
 import React from "react";
+import { supabase } from "../lib/supabase";
 
 import Link from "next/link";
 
 export default function TopNav() {
+  // const logOut = async () => {
+  //   const { error } = await supabase.auth.signOut();
+  //   alert("로그아웃 되었습니다");
+  // };
+
+  // const { data: { user } } = await supabase.auth.getUser();
+
+  // const signOut = async () => {
+  //   "use server";
+
+  //   const cookieStore = cookies();
+  //   const supabase = createClient(cookieStore);
+
+  //   await supabase.auth.signOut();
+  // };
+
   return (
     <>
-      <div className="navbar bg-base-100">
-        <div className="flex-1">
-          <a className="btn btn-ghost text-xl">DevCookie</a>
-        </div>
+      <div className="navbar bg-base-100 bg-orange-200">
+        <div className="flex-1"></div>
         <div className="flex-none gap-2">
           <div className="form-control">
             <input
@@ -41,7 +56,7 @@ export default function TopNav() {
                 </a>
               </li>
               <li>
-                <a>Settings</a>
+                <a>LogOut</a>
               </li>
               <li>
                 <Link href="/devCookieAuth/devCookieLogIn">LogIn</Link>
