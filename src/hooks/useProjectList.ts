@@ -1,12 +1,22 @@
 import { Review } from "@/types/projectReviewTypeIndex";
 import { supabase } from "./useSupabase";
 
-function useProjectReviewList() {
-  const getProjectList = async () => {
+function useProjectList() {
+  const getDoneProjectList = async () => {
     let { data: totalProjectList, error } = await supabase
       .from("totalProjectList")
       .select(`*`)
       .eq("ongoing", "FALSE");
+
+    if (error) return alert("error 발생!");
+    return totalProjectList;
+  };
+
+  const getOngoingProjectList = async () => {
+    let { data: totalProjectList, error } = await supabase
+      .from("totalProjectList")
+      .select(`*`)
+      .eq("ongoing", "TRUE");
 
     if (error) return alert("error 발생!");
     return totalProjectList;
@@ -29,7 +39,7 @@ function useProjectReviewList() {
       .select();
   };
 
-  return { getProjectList, addProjectList };
+  return { getDoneProjectList, getOngoingProjectList, addProjectList };
 }
 
-export default useProjectReviewList;
+export default useProjectList;
