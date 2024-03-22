@@ -1,7 +1,7 @@
 import Link from "next/link";
 import TopNav from "./components/topNav";
-import HomeBanner from "./devCookieHomeComponents/HomeBanner";
-import HomeProjectList from "./devCookieHomeComponents/HomeProjectList";
+import HomeBanner from "./components/devCookieHomeComponents/HomeBanner";
+import HomeProjectList from "./components/devCookieHomeComponents/HomeProjectList";
 
 export default function Home() {
   return (

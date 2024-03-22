@@ -1,5 +1,5 @@
-import PlaylistSearchList from "@/app/devCookiePlaylistComponents/PlaylistSearchList";
-import PlaylistSearchform from "@/app/devCookiePlaylistComponents/PlaylistSearchform";
+import PlaylistSearchList from "@/app/components/devCookiePlaylistComponents/PlaylistSearchList";
+import PlaylistSearchform from "@/app/components/devCookiePlaylistComponents/PlaylistSearchform";
 import React from "react";
 
 function page() {

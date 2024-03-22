@@ -3,7 +3,7 @@ import type { video } from "@/types/playlistTypeIndex";
 
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import useMyPlayList from "../hooks/useMyPlayList";
+import useMyPlayList from "../../hooks/useMyPlayList";
 
 function PlaylistSearchList() {
   const { id } = useParams();
