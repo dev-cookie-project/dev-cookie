@@ -6,7 +6,7 @@ import { supabase } from "./useSupabase";
 function useMyPlayList() {
   const [list, setList] = useState<Playlist[]>();
 
-  const getPlaylist = async (userID: number) => {
+  const getPlaylist = async (userID: string) => {
     const { data: playList, error } = await supabase
       .from("musicList")
       .select(`*, youtube`)
