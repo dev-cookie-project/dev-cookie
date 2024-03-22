@@ -1,14 +1,17 @@
 import Link from "next/link";
-import TopNav from "./components/topNav";
-import CommentList from "@/components/comment/CommentList";
+import HomeBanner from "./components/devCookieHomeComponents/HomeBanner";
+import HomeProjectList from "./components/devCookieHomeComponents/HomeProjectList";
 
 export default function Home() {
   return (
     <>
-      <TopNav></TopNav>
-      <Link href="/devCookieAuth/devCookieJoinUs">회원가입 페이지</Link>
-      <Link href="/devCookieAuth/devCookieLogIn">로그인 페이지</Link>
-      <CommentList />
+      <div className="h-48 w-128 flex flex-col items-center justify-center bg-orange-300">
+        <HomeBanner />
+      </div>
+
+      <div className="h-200 w-128 px-4 bg-orange-400 flex justify-center items-center">
+        <HomeProjectList />
+      </div>
     </>
   );
 }

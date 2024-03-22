@@ -62,7 +62,6 @@ const Signup = () => {
   return (
     <div>
       <form onSubmit={handleSumbit}>
-        <Link href="http://localhost:3000/">홈</Link>
         <label className="input input-bordered flex items-center gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
