@@ -16,14 +16,14 @@ export const passwordAtom = atom("");
 
 //회원가입
 const Login = () => {
-  // const router = useRouter();
-  // supabase.auth.onAuthStateChange(async (event) => {
-  //   if (event !== "SIGNED_OUT") {
-  //     router.push("/");
-  //   } else {
-  //     router.push("/devCookieAuth/devCookieLogIn");
-  //   }
-  // });
+  const router = useRouter();
+  supabase.auth.onAuthStateChange(async (event) => {
+    if (event !== "SIGNED_OUT") {
+      router.push("/devCookieAuth/devCookieLogIn");
+    } else {
+      router.push("/");
+    }
+  });
   const [email, setEmail] = useAtom(emailAtom);
   const [password, setPassword] = useAtom(passwordAtom);
 
@@ -40,6 +40,7 @@ const Login = () => {
         alert("아이디와 비밀번호를 확인해주세요");
       } else {
         alert("로그인이 완료되었습니다.");
+        router.push("/");
       }
     } catch (error) {
       console.error(error);
