@@ -1,11 +1,11 @@
 import PlaylistSearchList from "@/app/components/playlist/PlaylistSearchList";
-import PlaylistSearchform from "@/app/components/playlist/PlaylistSearchform";
+import PlaylistSearchForm from "@/app/components/playlist/PlaylistSearchForm";
 import React from "react";
 
 function page() {
   return (
     <>
-      <PlaylistSearchform />
+      <PlaylistSearchForm />
       <PlaylistSearchList />
     </>
   );
