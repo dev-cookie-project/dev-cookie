@@ -1,5 +1,5 @@
 import Image from "next/image";
-import DevCookieProjectSearchForm from "../components/devCookieProjectComponents/DevCookieProjectSearchForm";
+import DevCookieProjectSearchForm from "../components/project/projectSearchForm";
 
 function page() {
   return (

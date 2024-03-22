@@ -1,6 +1,6 @@
 import React from "react";
-import DevCookieProjectReviewComponents from "../components/devCookieProjectReviewComponents/DevCookieProjectReviewSearchForm";
-import DevCookieProjectReviewList from "../components/devCookieProjectReviewComponents/DevCookieProjectReviewList";
+import DevCookieProjectReviewComponents from "../components/projectReview/reviewSearchForm";
+import DevCookieProjectReviewList from "../components/projectReview/projectReviewList";
 
 function page() {
   return (
