@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 
-function DevCookieProjectSearchForm() {
+function ProjectSearchForm() {
   const [searchWord, setSearchWord] = useState("");
 
   return (
@@ -28,4 +28,4 @@ function DevCookieProjectSearchForm() {
   );
 }
 
-export default DevCookieProjectSearchForm;
+export default ProjectSearchForm;
