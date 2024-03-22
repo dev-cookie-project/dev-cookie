@@ -5,7 +5,9 @@ function useProjectReviewList() {
   const getProjectList = async () => {
     let { data: totalProjectList, error } = await supabase
       .from("totalProjectList")
-      .select(`*`);
+      .select(`*`)
+      .eq("ongoing", "FALSE");
+
     if (error) return alert("error 발생!");
     return totalProjectList;
   };
