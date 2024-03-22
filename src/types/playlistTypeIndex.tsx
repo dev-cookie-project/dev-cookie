@@ -1,4 +1,4 @@
-export type video = {
+export type Video = {
   kind: string;
   etag: string;
   id: {
@@ -35,9 +35,9 @@ export type video = {
   };
 };
 
-export type playlist = {
+export type Playlist = {
   userID: number;
-  video: video;
+  video: Video;
 };
 
 export type FindPlayList = {

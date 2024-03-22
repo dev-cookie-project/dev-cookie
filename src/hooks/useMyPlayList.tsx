@@ -1,14 +1,10 @@
-import { playlist } from "@/types/playlistTypeIndex";
-import { createClient } from "@supabase/supabase-js";
+import { Playlist } from "@/types/playlistTypeIndex";
 import { useState } from "react";
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL as string,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string
-);
+import { supabase } from "./useSupabase";
 
 function useMyPlayList() {
-  const [list, setList] = useState<playlist[]>();
+  const [list, setList] = useState<Playlist[]>();
 
   const getPlaylist = async (userID: number) => {
     const { data: playList, error } = await supabase
@@ -20,7 +16,7 @@ function useMyPlayList() {
     if (error) return alert("error 발생!");
   };
 
-  const addPlaylist = async ({ userID, video }: playlist) => {
+  const addPlaylist = async ({ userID, video }: Playlist) => {
     const { data, error } = await supabase
       .from("musicList")
       .insert([
@@ -29,13 +25,12 @@ function useMyPlayList() {
       .select();
   };
 
-  const addNewPlaylist = async ({ userID, video }: playlist) => {
+  const addNewPlaylist = async ({ userID, video }: Playlist) => {
     const { data: findPlayListData } = await supabase
       .from("musicList")
       .select(`youtube`)
       .eq("userID", userID)
       .eq("youtube", video.id.videoId);
-    console.log(findPlayListData);
 
     if (findPlayListData === null || findPlayListData.length === 0) {
       alert("추가되었습니다.");
@@ -43,13 +38,12 @@ function useMyPlayList() {
       return findPlayListData;
     }
     if (!!findPlayListData) {
-      console.log(findPlayListData);
       alert("이미 추가된 목록입니다.");
       return findPlayListData;
     }
   };
 
-  const deletePlaylist = async ({ userID, video }: playlist) => {
+  const deletePlaylist = async ({ userID, video }: Playlist) => {
     const { error } = await supabase
       .from("musicList")
       .delete()
