@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import { supabase } from "../../utils/supabaseClient";
+import { supabase } from "../../../utils/supabaseClient";
 import { Comment } from "@/types/comment-types";
 import CommentForm from "./CommentForm";
 
@@ -106,56 +106,67 @@ const CommentList: React.FC = () => {
             >
               {editingCommentId === comment.id ? (
                 <>
-                  <div className="mr-3">
-                    <button
-                      className="btn btn-active btn-neutral m-3"
-                      onClick={() => handleSave(comment.id)}
-                    >
-                      완료
-                    </button>
-                    <button
-                      className="btn btn-active btn-neutral"
-                      onClick={() => {
-                        setEditingCommentId(null);
-                        setTempContent("");
-                      }}
-                    >
-                      취소
-                    </button>
+                  <div className="flex items-end flex-col w-full">
+                    <div className="flex-col mr-3">
+                      <button
+                        className="btn btn-active btn-neutral m-2"
+                        onClick={() => handleSave(comment.id)}
+                      >
+                        완료
+                      </button>
+                      <button
+                        className="btn btn-active btn-neutral"
+                        onClick={() => {
+                          setEditingCommentId(null);
+                          setTempContent("");
+                        }}
+                      >
+                        취소
+                      </button>
+                    </div>
+                    <div>
+                      <h1 className="bg-lime-500">
+                        작성자 ID: {comment.userId}
+                      </h1>
+                    </div>
+                    <input
+                      ref={editInputRef}
+                      type="text"
+                      value={tempContent}
+                      onChange={(e) => setTempContent(e.target.value)}
+                    />
+                    <div>
+                      <p className="mt-16 mr-2">
+                        {new Date(comment.createdAt).toLocaleString()}
+                      </p>
+                    </div>
                   </div>
-                  <input
-                    ref={editInputRef}
-                    type="text"
-                    value={tempContent}
-                    onChange={(e) => setTempContent(e.target.value)}
-                  />
                 </>
               ) : (
                 <>
-                  <div className="mr-3">
-                    <button
-                      className="btn btn-active btn-neutral m-3 "
-                      onClick={() => handleEdit(comment)}
-                    >
-                      수정
-                    </button>
-                    <button
-                      className="btn btn-active btn-neutral"
-                      onClick={() => handleRemoveComment(comment.id)}
-                    >
-                      삭제
-                    </button>
+                  <div className="flex items-end flex-col w-full">
+                    <div className="flex-col mr-3">
+                      <button
+                        className="btn btn-active btn-neutral m-2 "
+                        onClick={() => handleEdit(comment)}
+                      >
+                        수정
+                      </button>
+                      <button
+                        className="btn btn-active btn-neutral"
+                        onClick={() => handleRemoveComment(comment.id)}
+                      >
+                        삭제
+                      </button>
+                    </div>
+                    <div className="flex-col bg-sky-200 w-11/12 mr-36 h-full">
+                      <h1>작성자 ID: {comment.userId}</h1>
+                      <p>{comment.content}</p>
+                    </div>
+                    <div className="mt-16 mr-2">
+                      <p>{new Date(comment.createdAt).toLocaleString()}</p>
+                    </div>
                   </div>
-                  <div>
-                    <p>
-                      작성일: {new Date(comment.createdAt).toLocaleString()}
-                    </p>
-                  </div>
-                  <div>
-                    <h1 className="bg-lime-500">작성자 ID: {comment.userId}</h1>
-                    <p>{comment.content}</p>
-                  </div>
-                  <div></div>
                 </>
               )}
             </li>
