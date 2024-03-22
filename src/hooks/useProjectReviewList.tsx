@@ -6,7 +6,6 @@ function useProjectReviewList() {
     let { data: totalProjectList, error } = await supabase
       .from("totalProjectList")
       .select(`*`);
-    console.log("totalProjectList", totalProjectList);
 
     if (!totalProjectList) return <div>프로젝트가 없습니다.</div>;
     if (error) return alert("error 발생!");

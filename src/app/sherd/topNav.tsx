@@ -13,7 +13,6 @@ export default function TopNav() {
 
   useEffect(() => {
     supabase.auth.onAuthStateChange((event, session) => {
-      console.log(event, session);
       if (event === "SIGNED_IN") {
         setCondition(session);
       } else if (event === "SIGNED_OUT") {
