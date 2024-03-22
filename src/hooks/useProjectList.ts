@@ -12,16 +12,6 @@ function useProjectList() {
     return totalProjectList;
   };
 
-  const getOngoingProjectList = async () => {
-    let { data: totalProjectList, error } = await supabase
-      .from("totalProjectList")
-      .select(`*`)
-      .eq("ongoing", "TRUE");
-
-    if (error) return alert("error 발생!");
-    return totalProjectList;
-  };
-
   const addProjectList = async (nextreview: Review) => {
     const { data, error } = await supabase
       .from("totalProjectList")
@@ -39,7 +29,7 @@ function useProjectList() {
       .select();
   };
 
-  return { getDoneProjectList, getOngoingProjectList, addProjectList };
+  return { getDoneProjectList, addProjectList };
 }
 
 export default useProjectList;
