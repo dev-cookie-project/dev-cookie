@@ -17,7 +17,7 @@ const Login = () => {
 
   supabase.auth.onAuthStateChange(async (event) => {
     if (event !== "SIGNED_OUT") {
-      router.push("/devCookieAuth/devCookieLogIn");
+      router.push("/logIn");
     } else {
       router.push("/");
     }
@@ -75,8 +75,7 @@ const Login = () => {
         <div className="card-body">
           <h2 className="card-title">로그인</h2>
           <p>
-            회원가입이 아직이신가요?{" "}
-            <Link href="/devCookieAuth/devCookieJoinUs">회원가입</Link>
+            회원가입이 아직이신가요? <Link href="/signUp">회원가입</Link>
           </p>
 
           <div className="card w-96 bg-base-100 justify-center">
