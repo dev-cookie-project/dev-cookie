@@ -36,7 +36,7 @@ export type Video = {
 };
 
 export type Playlist = {
-  userID: number;
+  userID: string;
   video: Video;
 };
 

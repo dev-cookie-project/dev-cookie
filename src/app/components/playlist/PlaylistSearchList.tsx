@@ -4,12 +4,13 @@ import type { Video } from "@/types/playlistTypeIndex";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import useMyPlayList from "../../../hooks/useMyPlayList";
+import { supabase } from "@/hooks/useSupabase";
 
 function PlaylistSearchList() {
   const { id } = useParams();
   const [videos, setVideos] = useState<Video[]>([]);
+  const [userID, setUserID] = useState("");
   const { addNewPlaylist } = useMyPlayList();
-  const userID = 22222;
 
   useEffect(() => {
     const getYoutubePlaylist = async () => {
@@ -21,11 +22,20 @@ function PlaylistSearchList() {
       if (!data) {
         return alert("결과가 존재하지 않습니다.");
       }
+
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+      if (user === null) return alert("로그인 해주세요!");
+      const logInUser = user.id;
+      console.log(logInUser);
+      setUserID(logInUser);
+
       const playlist = data.items;
       setVideos(playlist);
     };
     getYoutubePlaylist();
-  }, [id]);
+  }, [id, setUserID]);
 
   return (
     <>
