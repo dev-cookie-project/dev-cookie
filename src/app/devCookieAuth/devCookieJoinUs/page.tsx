@@ -1,16 +1,14 @@
 "use client";
 
-import React, { FormEvent, useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import { supabase } from "@/app/lib/supabase/supabase";
-
-import Link from "next/link";
 
 //회원가입
 const Signup = () => {
   // const [nickname, setNickname] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSumbit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,7 +17,6 @@ const Signup = () => {
         email,
         password,
       });
-      console.log(data);
       if (error) {
         console.error(error);
         alert("아이디와 비밀번호를 확인해주세요");
@@ -40,8 +37,6 @@ const Signup = () => {
       const { data, error } = await supabase.auth.signInWithOAuth({
         provider: "github",
       });
-
-      console.log(data);
       alert("로그인이 완료되었습니다.");
       // 에러가 발생하면 콘솔에 로그를 출력합니다.
       if (error) {
