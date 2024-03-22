@@ -18,6 +18,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  //로그인 여부 확인 후 페이지 이동
   supabase.auth.onAuthStateChange(async (event) => {
     if (event !== "SIGNED_OUT") {
       router.push("/logIn");
@@ -26,6 +27,7 @@ const Login = () => {
     }
   });
 
+  //가입한 이메일로 로그인
   async function handleLogin(e: React.FormEvent) {
     e.preventDefault();
     try {
@@ -46,6 +48,7 @@ const Login = () => {
     router.push("/");
   }
 
+  //Github으로 로그인
   async function signUpWithGithub() {
     try {
       // Supabase를 이용해 GitHub OAuth를 통해 로그인을 시도합니다.

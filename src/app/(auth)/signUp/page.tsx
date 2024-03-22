@@ -9,7 +9,7 @@ import PasswordIcon from "@/app/components/svg/passwordIcon";
 
 //회원가입
 const Signup = () => {
-  // const [nickname, setNickname] = useState<string>("");
+  const [nickname, setNickname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const id = useId();
@@ -20,7 +20,13 @@ const Signup = () => {
       const { data, error } = await supabase.auth.signUp({
         email,
         password,
+        options: {
+          data: {
+            nickname,
+          },
+        },
       });
+      console.log(data);
       if (error) {
         console.error(error);
         alert("아이디와 비밀번호를 확인해주세요");
@@ -30,7 +36,7 @@ const Signup = () => {
     } catch (error) {
       console.error("error :>>", error);
     }
-    // setNickname("");
+    setNickname("");
     setEmail("");
     setPassword("");
   };
@@ -74,10 +80,10 @@ const Signup = () => {
             type="text"
             className="grow"
             placeholder="닉네임을 입력해주세요."
-            // value={nickname}
-            // onChange={(e) => {
-            //   setNickname(e.target.value);
-            // }}
+            value={nickname}
+            onChange={(e) => {
+              setNickname(e.target.value);
+            }}
           />
         </label>
         <label
