@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import { supabase } from "../../utils/supabaseClient";
+import { supabase } from "../../../utils/supabaseClient";
 import { Comment } from "@/types/comment-types";
 import CommentForm from "./CommentForm";
 
@@ -92,44 +92,81 @@ const CommentList: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="w-full mt-28 flex-col">
+      <div className="h-16">
+        <h1 className="text-4xl ml-12 font-bold">댓글</h1>
+      </div>
       <CommentForm onCommentAdded={handleCommentAdded} />
       {comments.length > 0 ? (
-        <ul>
+        <ul className="flex flex-col w-full bg-yellow-100">
           {comments.map((comment) => (
-            <li key={comment.id}>
+            <li
+              className="border-solid border rounded-md flex justify-between flex-row-reverse my-4 mx-24 h-52"
+              key={comment.id}
+            >
               {editingCommentId === comment.id ? (
                 <>
-                  <input
-                    ref={editInputRef}
-                    type="text"
-                    value={tempContent}
-                    onChange={(e) => setTempContent(e.target.value)}
-                  />
-                  <button onClick={() => handleSave(comment.id)}>완료</button>
-                  <button
-                    onClick={() => {
-                      setEditingCommentId(null);
-                      setTempContent("");
-                    }}
-                  >
-                    취소
-                  </button>
+                  <div className="flex items-end flex-col w-full">
+                    <div className="flex-col mr-3">
+                      <button
+                        className="btn btn-active btn-neutral m-2"
+                        onClick={() => handleSave(comment.id)}
+                      >
+                        완료
+                      </button>
+                      <button
+                        className="btn btn-active btn-neutral"
+                        onClick={() => {
+                          setEditingCommentId(null);
+                          setTempContent("");
+                        }}
+                      >
+                        취소
+                      </button>
+                    </div>
+                    <div>
+                      <h1 className="bg-lime-500">
+                        작성자 ID: {comment.userId}
+                      </h1>
+                    </div>
+                    <input
+                      ref={editInputRef}
+                      type="text"
+                      value={tempContent}
+                      onChange={(e) => setTempContent(e.target.value)}
+                    />
+                    <div>
+                      <p className="mt-16 mr-2">
+                        {new Date(comment.createdAt).toLocaleString()}
+                      </p>
+                    </div>
+                  </div>
                 </>
               ) : (
                 <>
-                  <div>
-                    <span>작성자 ID: {comment.userId}</span>
-                    <br />
-                    <p>{comment.content}</p>
-                    <span>
-                      작성일: {new Date(comment.createdAt).toLocaleString()}
-                    </span>
+                  <div className="flex items-end flex-col w-full">
+                    <div className="flex-col mr-3">
+                      <button
+                        className="btn btn-active btn-neutral m-2 "
+                        onClick={() => handleEdit(comment)}
+                      >
+                        수정
+                      </button>
+                      <button
+                        className="btn btn-active btn-neutral"
+                        onClick={() => handleRemoveComment(comment.id)}
+                      >
+                        삭제
+                      </button>
+                    </div>
+                    <div className="flex-col bg-sky-200 w-11/12 mr-36 h-full">
+                      <h1>작성자 ID: {comment.userId}</h1>
+                      <p>{comment.content}</p>
+                    </div>
+                    <div className="mt-16 mr-2">
+                      <p>{new Date(comment.createdAt).toLocaleString()}</p>
+                    </div>
                   </div>
-                  <button onClick={() => handleEdit(comment)}>수정</button>
-                  <button onClick={() => handleRemoveComment(comment.id)}>
-                    삭제
-                  </button>
                 </>
               )}
             </li>

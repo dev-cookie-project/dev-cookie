@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { supabase } from "../../utils/supabaseClient";
+import { supabase } from "../../../utils/supabaseClient";
 
 interface CommentFormProps {
   onCommentAdded: () => void;
@@ -41,14 +41,17 @@ const CommentForm: React.FC<CommentFormProps> = ({ onCommentAdded }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <textarea
+    <form className="flex" onSubmit={handleSubmit}>
+      <input
+        className="input input-bordered w-full m-10 h-28"
         value={content}
         onChange={(e) => setContent(e.target.value)}
-        placeholder="댓글을 입력하세요..."
+        placeholder="댓글을 입력해주세요..."
         required
       />
-      <button type="submit">댓글 추가</button>
+      <button className="btn btn-warning btn-lg m-10 mt-16 ml-3" type="submit">
+        입력하기
+      </button>
     </form>
   );
 };
