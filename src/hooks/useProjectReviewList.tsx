@@ -1,55 +1,36 @@
-import React from "react";
-import supabase from "../hooks/useMyPlayList";
+import { review } from "@/types/projectReviewTypeIndex";
+import { supabase } from "./useSupabase";
 
 function useProjectReviewList() {
-  // const getProjectList = async (userID: number) => {
-  //   const { data: playList, error } = await supabase
-  //     .from("musicList")
-  //     .select(`*, youtube`)
-  //     .eq(`userID`, userID);
-  //   if (!playList) return;
-  //   setList(playList);
-  //   if (error) return alert("error 발생!");
-  // };
+  const getProjectList = async () => {
+    let { data: totalProjectList, error } = await supabase
+      .from("totalProjectList")
+      .select(`*`);
+    console.log("totalProjectList", totalProjectList);
 
-  // const addPlaylist = async ({ userID, video }: playlist) => {
-  //   const { data, error } = await supabase
-  //     .from("musicList")
-  //     .insert([
-  //       { userID: userID, created_at: new Date(), youtube: video.id.videoId },
-  //     ])
-  //     .select();
-  // };
+    if (!totalProjectList) return <div>프로젝트가 없습니다.</div>;
+    if (error) return alert("error 발생!");
+    return totalProjectList;
+  };
 
-  // const addNewPlaylist = async ({ userID, video }: playlist) => {
-  //   const { data: findPlayListData } = await supabase
-  //     .from("musicList")
-  //     .select(`youtube`)
-  //     .eq("userID", userID)
-  //     .eq("youtube", video.id.videoId);
-  //   console.log(findPlayListData);
+  const addProjectList = async (nextreview: review) => {
+    const { data, error } = await supabase
+      .from("totalProjectList")
+      .insert([
+        {
+          userID: nextreview.userID,
+          created_at: new Date(),
+          projectOrStudy: nextreview.projectOrStudy,
+          title: nextreview.title,
+          contents: nextreview.contents,
+          heshSelection: nextreview.heshSelection,
+          ongoing: true,
+        },
+      ])
+      .select();
+  };
 
-  //   if (findPlayListData === null || findPlayListData.length === 0) {
-  //     alert("추가되었습니다.");
-  //     await addPlaylist({ userID, video });
-  //     return findPlayListData;
-  //   }
-  //   if (!!findPlayListData) {
-  //     console.log(findPlayListData);
-  //     alert("이미 추가된 목록입니다.");
-  //     return findPlayListData;
-  //   }
-  // };
-
-  // const deletePlaylist = async ({ userID, video }: playlist) => {
-  //   const { error } = await supabase
-  //     .from("musicList")
-  //     .delete()
-  //     .eq("userID", userID)
-  //     .eq("youtube", video.id.videoId);
-  // };
-
-  return <div>useProjectReviewList</div>;
+  return { getProjectList, addProjectList };
 }
 
 export default useProjectReviewList;

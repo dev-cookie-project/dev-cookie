@@ -2,10 +2,7 @@ import { playlist } from "@/types/playlistTypeIndex";
 import { createClient } from "@supabase/supabase-js";
 import { useState } from "react";
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL as string,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string
-);
+import { supabase } from "./useSupabase";
 
 function useMyPlayList() {
   const [list, setList] = useState<playlist[]>();
