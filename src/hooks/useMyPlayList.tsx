@@ -1,4 +1,4 @@
-import { FindPlayList, playlist } from "@/types/playlistTypeIndex";
+import { playlist } from "@/types/playlistTypeIndex";
 import { createClient } from "@supabase/supabase-js";
 import { useState } from "react";
 

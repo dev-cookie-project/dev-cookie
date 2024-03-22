@@ -4,6 +4,7 @@ import React from "react";
 import { supabase } from "../lib/supabase";
 
 import Link from "next/link";
+import Image from "next/image";
 
 export default function TopNav() {
   // const logOut = async () => {
@@ -28,7 +29,7 @@ export default function TopNav() {
 
   return (
     <>
-      <div className="navbar bg-base-100 bg-orange-200">
+      <div className="navbar bg-orange-400">
         <div className="flex-1"></div>
         <div className="flex-none gap-2">
           <div className="form-control">
@@ -45,9 +46,11 @@ export default function TopNav() {
               className="btn btn-ghost btn-circle avatar"
             >
               <div className="w-10 rounded-full">
-                <img
+                <Image
+                  width="10"
+                  height="10"
                   alt="Tailwind CSS Navbar component"
-                  src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                  src=""
                 />
               </div>
             </div>
