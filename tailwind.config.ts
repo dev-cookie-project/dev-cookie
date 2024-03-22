@@ -9,6 +9,14 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      width: {
+        "128": "100%",
+      },
+      height: {
+        "100": "38rem",
+        "200": "45rem",
+        "300": "100%",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
