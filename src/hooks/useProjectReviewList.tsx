@@ -1,4 +1,4 @@
-import { review } from "@/types/projectReviewTypeIndex";
+import { Review } from "@/types/projectReviewTypeIndex";
 import { supabase } from "./useSupabase";
 
 function useProjectReviewList() {
@@ -12,7 +12,7 @@ function useProjectReviewList() {
     return totalProjectList;
   };
 
-  const addProjectList = async (nextreview: review) => {
+  const addProjectList = async (nextreview: Review) => {
     const { data, error } = await supabase
       .from("totalProjectList")
       .insert([

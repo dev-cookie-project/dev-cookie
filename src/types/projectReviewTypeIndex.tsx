@@ -1,9 +1,9 @@
-export type hashSelection = {
+export type HashSelection = {
   hash: string;
 };
-export type hashSelectionList = hashSelection[];
+export type HashSelectionList = HashSelection[];
 
-export type review = {
+export type Review = {
   userID: number;
   created_at: string;
   projectOrStudy: number;
@@ -13,4 +13,4 @@ export type review = {
   ongoing: boolean;
 };
 
-export type reviewList = review[];
+export type ReviewList = Review[];

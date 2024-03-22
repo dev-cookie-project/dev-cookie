@@ -1,5 +1,5 @@
 "use client";
-import type { video } from "@/types/playlistTypeIndex";
+import type { Video } from "@/types/playlistTypeIndex";
 
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -7,7 +7,7 @@ import useMyPlayList from "../../../hooks/useMyPlayList";
 
 function PlaylistSearchList() {
   const { id } = useParams();
-  const [videos, setVideos] = useState<video[]>([]);
+  const [videos, setVideos] = useState<Video[]>([]);
   const { addNewPlaylist } = useMyPlayList();
   const userID = 22222;
 

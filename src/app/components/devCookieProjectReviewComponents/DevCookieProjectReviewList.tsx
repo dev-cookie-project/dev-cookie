@@ -1,13 +1,18 @@
 "use client";
 import useProjectReviewList from "@/hooks/useProjectReviewList";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 function DevCookieProjectReviewList() {
+  const [projectReviewList, setProjectReviewList] = useState("");
   const { getProjectList, addProjectList } = useProjectReviewList();
-  const projectDoneList = getProjectList();
-  console.log(projectDoneList);
-  if (!projectDoneList) return <div>현재 프로젝트가 없습니다.</div>;
+
+  const getProjectDoneList = async () => {
+    const projectDoneList = await getProjectList();
+    if (!projectDoneList) return <div>현재 프로젝트가 없습니다.</div>;
+    setProjectReviewList(projectDoneList);
+  };
+  getProjectDoneList();
 
   const nextproject = {
     userID: 12345,
@@ -30,7 +35,7 @@ function DevCookieProjectReviewList() {
           >
             추가
           </button>
-          {/* {projectDoneList.map((project) => (
+          {projectReviewList.map((project) => (
             <div key={project.id}>
               <div className="card card-compact w-80 h-80 bg-base-100 shadow-xl text-base">
                 <figure>
@@ -47,7 +52,7 @@ function DevCookieProjectReviewList() {
                 <div className="card-actions justify-end"></div>
               </div>
             </div>
-          ))} */}
+          ))}
         </div>
       </div>
     </>

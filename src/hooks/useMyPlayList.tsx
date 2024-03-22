@@ -1,11 +1,11 @@
-import { playlist } from "@/types/playlistTypeIndex";
+import { Playlist } from "@/types/playlistTypeIndex";
 import { createClient } from "@supabase/supabase-js";
 import { useState } from "react";
 
 import { supabase } from "./useSupabase";
 
 function useMyPlayList() {
-  const [list, setList] = useState<playlist[]>();
+  const [list, setList] = useState<Playlist[]>();
 
   const getPlaylist = async (userID: number) => {
     const { data: playList, error } = await supabase
@@ -17,7 +17,7 @@ function useMyPlayList() {
     if (error) return alert("error 발생!");
   };
 
-  const addPlaylist = async ({ userID, video }: playlist) => {
+  const addPlaylist = async ({ userID, video }: Playlist) => {
     const { data, error } = await supabase
       .from("musicList")
       .insert([
@@ -26,7 +26,7 @@ function useMyPlayList() {
       .select();
   };
 
-  const addNewPlaylist = async ({ userID, video }: playlist) => {
+  const addNewPlaylist = async ({ userID, video }: Playlist) => {
     const { data: findPlayListData } = await supabase
       .from("musicList")
       .select(`youtube`)
@@ -46,7 +46,7 @@ function useMyPlayList() {
     }
   };
 
-  const deletePlaylist = async ({ userID, video }: playlist) => {
+  const deletePlaylist = async ({ userID, video }: Playlist) => {
     const { error } = await supabase
       .from("musicList")
       .delete()
