@@ -20,7 +20,7 @@ function Aside({ props }: { props: React.ReactNode }) {
             <Link href={"/"}>Home</Link>
           </li>
           <li>
-            <a>프로젝트/스터디 찾기</a>
+            <Link href={"/devCookieProject"}>프로젝트/스터디 찾기</Link>
           </li>
           <li>
             <a>모임 만들기</a>
