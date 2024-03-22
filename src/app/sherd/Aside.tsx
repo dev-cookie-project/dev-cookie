@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -7,7 +6,6 @@ function Aside({ props }: { props: React.ReactNode }) {
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content">{props}</div>
-
       <div className="drawer-side ">
         {/* <Image
           src=""
