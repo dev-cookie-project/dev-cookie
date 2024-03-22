@@ -17,7 +17,7 @@ const Login = () => {
 
   supabase.auth.onAuthStateChange(async (event) => {
     if (event !== "SIGNED_OUT") {
-      router.push("/devCookieAuth/devCookieLogIn");
+      router.push("/auth/logIn");
     } else {
       router.push("/");
     }
