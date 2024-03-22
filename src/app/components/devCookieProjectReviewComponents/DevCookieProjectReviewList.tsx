@@ -1,40 +1,29 @@
 "use client";
 import useProjectReviewList from "@/hooks/useProjectReviewList";
+import type { ReviewList } from "@/types/projectReviewTypeIndex";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 function DevCookieProjectReviewList() {
-  const [projectReviewList, setProjectReviewList] = useState("");
-  const { getProjectList, addProjectList } = useProjectReviewList();
+  const [projectReviewList, setProjectReviewList] = useState<ReviewList>();
+  const { getProjectList } = useProjectReviewList();
 
-  const getProjectDoneList = async () => {
-    const projectDoneList = await getProjectList();
-    if (!projectDoneList) return <div>현재 프로젝트가 없습니다.</div>;
-    setProjectReviewList(projectDoneList);
-  };
-  getProjectDoneList();
+  useEffect(() => {
+    const getProjectDoneList = async () => {
+      const projectDoneList = (await getProjectList()) as ReviewList;
+      setProjectReviewList(projectDoneList);
+    };
 
-  const nextproject = {
-    userID: 12345,
-    created_at: "2024-03-10",
-    projectOrStudy: 1,
-    title: "추가 타이틀",
-    contents: "추가 내용",
-    heshSelection: ["javascript", "CSS"],
-    ongoing: true,
-  };
+    getProjectDoneList();
+  }, [getProjectList]);
+
+  if (!projectReviewList || projectReviewList === undefined)
+    return <div>현재 프로젝트가 없습니다.</div>;
 
   return (
     <>
       <div className="h-200 w-128 bg-orange-400 py-8 px-20">
         <div className="grid grid-rows-3 grid-cols-3 gap-4">
-          <button
-            onClick={() => {
-              addProjectList(nextproject);
-            }}
-          >
-            추가
-          </button>
           {projectReviewList.map((project) => (
             <div key={project.id}>
               <div className="card card-compact w-80 h-80 bg-base-100 shadow-xl text-base">
@@ -43,7 +32,7 @@ function DevCookieProjectReviewList() {
                     width={300}
                     height={200}
                     src=""
-                    alt="이미지가 없습니다."
+                    alt="프로젝트의 대표 이미지가 들어갑니다."
                   />
                 </figure>
                 <div className="card-body text-base">
