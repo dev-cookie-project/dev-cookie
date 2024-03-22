@@ -25,6 +25,10 @@ const CommentForm: React.FC<CommentFormProps> = ({ onCommentAdded }) => {
           createdAt,
         },
       ]);
+
+      if (error) {
+        throw error;
+      }
     } catch (error) {
       console.error("Error adding comment:", error);
     }
