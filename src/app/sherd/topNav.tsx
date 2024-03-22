@@ -65,7 +65,7 @@ export default function TopNav() {
                     : "opacity-0 pointer-events-none"
                 }
               >
-                <a>Mypage</a>
+                <Link href="/devCookieMyPage">Mypage</Link>
               </li>
               <li>
                 {condition ? (

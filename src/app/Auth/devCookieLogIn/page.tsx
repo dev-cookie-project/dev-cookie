@@ -1,22 +1,20 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 
 import { supabase } from "@/app/lib/supabase/supabase";
 
 import Link from "next/link";
 
-import { atom, useAtom } from "jotai";
-
-// import { Auth } from "@supabase/auth-ui-react";
 import { useRouter } from "next/navigation";
-
-export const emailAtom = atom("");
-export const passwordAtom = atom("");
 
 //회원가입
 const Login = () => {
   const router = useRouter();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   supabase.auth.onAuthStateChange(async (event) => {
     if (event !== "SIGNED_OUT") {
       router.push("/devCookieAuth/devCookieLogIn");
@@ -24,8 +22,6 @@ const Login = () => {
       router.push("/");
     }
   });
-  const [email, setEmail] = useAtom(emailAtom);
-  const [password, setPassword] = useAtom(passwordAtom);
 
   async function handleLogin(e: React.FormEvent) {
     e.preventDefault();
@@ -34,7 +30,6 @@ const Login = () => {
         email,
         password,
       });
-      console.log(data);
       if (error) {
         console.error(error);
         alert("아이디와 비밀번호를 확인해주세요");
@@ -56,8 +51,6 @@ const Login = () => {
       const { data, error } = await supabase.auth.signInWithOAuth({
         provider: "github",
       });
-
-      console.log(data);
       alert("로그인이 완료되었습니다.");
       // 에러가 발생하면 콘솔에 로그를 출력합니다.
       if (error) {
@@ -68,11 +61,12 @@ const Login = () => {
     }
   }
 
-  //Google로 회원가입
+  //Google로 로그인
   async function signUpWithGoogle() {
     supabase.auth.signInWithOAuth({
       provider: "google",
     });
+    alert("로그인이 완료되었습니다.");
   }
 
   return (
@@ -139,7 +133,6 @@ const Login = () => {
               >
                 로그인
               </button>
-
               <div className="card w-60 bg-base-100">
                 <button className="btn btn-outline" onClick={signUpWithGoogle}>
                   구글
@@ -153,16 +146,6 @@ const Login = () => {
               </div>
             </form>
           </div>
-          {/*          <div className="App">
-            <header className="App-header">
-             <Auth
-                supabaseClient={supabase}
-                // appearance={{ theme: ThemeSupa }}
-                theme="dark"
-                providers={["google", "github"]}
-              />
-            </header>
-          </div>*/}
         </div>
       </div>
     </div>
