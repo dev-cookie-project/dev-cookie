@@ -1,5 +1,8 @@
 import Image from "next/image";
-import React from "react";
+import cookieImage from "../../../public/cookies.png";
+import githubImage from "../../../public/github.png";
+import googleImage from "../../../public/google.png";
+import mailImage from "../../../public/email.png";
 
 function Footer() {
   return (
@@ -7,8 +10,8 @@ function Footer() {
       <footer className="footer place-items-stretch	p-10 bg-orange-100 text-black">
         <aside>
           <Image
-            src="/cookies.png"
-            alt="cookie"
+            src={cookieImage}
+            alt="Logo"
             width="50"
             height="50"
             className="fill-current"
@@ -20,8 +23,8 @@ function Footer() {
           <div className="grid grid-flow-col gap-4">
             <a>
               <Image
-                src="/google.png"
-                alt="email"
+                src={googleImage}
+                alt="google"
                 width="24"
                 height="24"
                 className="fill-current"
@@ -30,8 +33,8 @@ function Footer() {
 
             <a>
               <Image
-                src="/github.png"
-                alt="email"
+                src={githubImage}
+                alt="github"
                 width="24"
                 height="24"
                 className="fill-current"
@@ -40,7 +43,7 @@ function Footer() {
 
             <a>
               <Image
-                src="/email.png"
+                src={mailImage}
                 alt="email"
                 width="24"
                 height="24"

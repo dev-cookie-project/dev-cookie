@@ -1,15 +1,26 @@
 import { Review } from "@/types/projectReviewTypeIndex";
 import { supabase } from "./useSupabase";
 
-function useProjectReviewList() {
-  const getProjectList = async () => {
-    let { data: totalProjectList, error } = await supabase
+function useProjectList() {
+  const getDoneProjectList = async () => {
+    let { data: doneProjectList, error } = await supabase
       .from("totalProjectList")
-      .select(`*`);
+      .select(`*`)
+      .eq("ongoing", "FALSE");
 
-    if (!totalProjectList) return <div>프로젝트가 없습니다.</div>;
     if (error) return alert("error 발생!");
-    return totalProjectList;
+    return doneProjectList;
+  };
+
+  const getSearchDoneProjectList = async (searchWord: string) => {
+    let { data: searchDoneProjectList, error } = await supabase
+      .from("totalProjectList")
+      .select(`*`)
+      .eq("ongoing", "FALSE")
+      .contains("title", [`${searchWord}`]);
+
+    if (error) return alert("error 발생!");
+    return searchDoneProjectList;
   };
 
   const addProjectList = async (nextreview: Review) => {
@@ -29,7 +40,7 @@ function useProjectReviewList() {
       .select();
   };
 
-  return { getProjectList, addProjectList };
+  return { getDoneProjectList, addProjectList, getSearchDoneProjectList };
 }
 
-export default useProjectReviewList;
+export default useProjectList;

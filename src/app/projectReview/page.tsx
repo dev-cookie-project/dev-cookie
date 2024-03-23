@@ -1,12 +1,11 @@
-import React from "react";
-import DevCookieProjectReviewComponents from "../components/projectReview/reviewSearchForm";
-import DevCookieProjectReviewList from "../components/projectReview/projectReviewList";
+import ProjectReviewList from "../components/projectReview/projectReviewList";
+import ProjectSearchForm from "../components/searchForm/SearchForm";
 
 function page() {
   return (
     <div>
-      <DevCookieProjectReviewComponents />
-      <DevCookieProjectReviewList />
+      <ProjectSearchForm titleText="(아이콘) 참여한 프로젝트의 리뷰를 남겨보세요!" />
+      <ProjectReviewList />
     </div>
   );
 }

@@ -4,7 +4,7 @@ export type HashSelection = {
 export type HashSelectionList = HashSelection[];
 
 export type Review = {
-  userID: number;
+  userID: string;
   created_at: string;
   projectOrStudy: number;
   title: string;
@@ -15,7 +15,7 @@ export type Review = {
 
 export type Reviews = {
   id: number;
-  userID: number;
+  userID: string;
   created_at: string;
   projectOrStudy: number;
   title: string;
