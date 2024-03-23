@@ -1,62 +1,58 @@
+"use client";
+import uesHomeProjectList from "@/hooks/uesHomeProjectList";
+import { ReviewList, Reviews } from "@/types/projectReviewTypeIndex";
 import Image from "next/image";
-import React from "react";
+import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
 
 function HomeProjectList() {
+  const [projectTotalList, setProjectTotalList] = useState<Reviews[]>();
+  const router = useRouter();
+  const { getTotalProjectList } = uesHomeProjectList();
+
+  useEffect(() => {
+    const getProjectTotalList = async () => {
+      const projectTotalList = (await getTotalProjectList()) as Reviews[];
+      setProjectTotalList(projectTotalList);
+    };
+
+    getProjectTotalList();
+  }, [getTotalProjectList]);
+
+  if (!projectTotalList || projectTotalList === undefined)
+    return <div>현재 프로젝트가 없습니다.</div>;
+
+  const goDetailpage = (id: number) => {
+    router.push(`/project/${id}`);
+  };
+
   return (
     <div className="carousel rounded-box flex gap-12 px-8">
-      <div className="carousel-item">
-        <div className="card w-96 bg-base-100 shadow-xl">
-          <figure>
-            <Image src="/cookies.png" alt="Burger" width="200" height="200" />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">
-              Shoes!
-              <div className="badge badge-secondary">NEW</div>
-            </h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div className="card-actions justify-end">
-              <div className="badge badge-outline">Fashion</div>
-              <div className="badge badge-outline">Products</div>
-            </div>
+      <div className="carousel-item gap-12 ">
+        {projectTotalList.map((project) => (
+          <div
+            key={project.id}
+            className="card w-96 bg-yellow-400 text-black shadow-xl"
+          >
+            <button onClick={(e) => goDetailpage(project.id)}>
+              <figure>
+                <Image
+                  src="/cookies.png"
+                  alt="프로젝트 대표 이미지입니다."
+                  width="200"
+                  height="200"
+                />
+              </figure>
+              <div className="card-body">
+                <h2 className="card-title">{project.title}</h2>
+                <p>{[...project.heshSelection]}</p>
+                <div className="card-actions justify-end">
+                  <div className="badge badge-outline">{project.ongoing}</div>
+                </div>
+              </div>
+            </button>
           </div>
-        </div>
-      </div>
-      <div className="carousel-item">
-        <div className="card w-96 bg-base-100 shadow-xl">
-          <figure>
-            <Image src="/email.png" alt="Burger" width="200" height="200" />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">
-              Shoes!
-              <div className="badge badge-secondary">NEW</div>
-            </h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div className="card-actions justify-end">
-              <div className="badge badge-outline">Fashion</div>
-              <div className="badge badge-outline">Products</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="carousel-item">
-        <div className="card w-96 bg-base-100 shadow-xl">
-          <figure>
-            <Image src="/github.png" alt="Burger" width="200" height="200" />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">
-              Shoes!
-              <div className="badge badge-secondary">NEW</div>
-            </h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div className="card-actions justify-end">
-              <div className="badge badge-outline">Fashion</div>
-              <div className="badge badge-outline">Products</div>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );
