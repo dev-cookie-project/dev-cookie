@@ -23,7 +23,7 @@ function GatheringForm() {
 
   return (
     <form className="flex flex-col" onSubmit={handleSubmitGathering}>
-      <label htmlFor="gathering" className="text-black">
+      <label htmlFor="gathering" className="text-xl mb-1">
         모임
       </label>
       <select
@@ -40,7 +40,7 @@ function GatheringForm() {
 
       {/* stack 다중 셀렉트 */}
 
-      <label htmlFor="title" className="text-black">
+      <label htmlFor="title" className="text-xl mt-6 mb-1">
         제목
       </label>
       <input
@@ -52,7 +52,7 @@ function GatheringForm() {
         onChange={(e) => setTitle(e.target.value)}
         className="p-3 rounded-md"
       />
-      <label htmlFor="content" className="text-black">
+      <label htmlFor="content" className="text-xl mt-6 mb-1">
         내용
       </label>
       <textarea
@@ -61,13 +61,13 @@ function GatheringForm() {
         placeholder="내용을 입력해주세요."
         value={content}
         onChange={(e) => setContent(e.target.value)}
-        className="p-3 rounded-md"
+        className="p-3 rounded-md resize-none h-48"
       ></textarea>
-      <div>
-        <button type="submit" className="text-black">
+      <div className="flex justify-end gap-6 mt-6">
+        <button type="submit" className="btn w-32 text-2xl">
           등록
         </button>
-        <button type="button" className="text-black">
+        <button type="button" className="btn w-32 text-2xl">
           취소
         </button>
       </div>
