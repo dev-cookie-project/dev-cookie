@@ -32,7 +32,6 @@ function PlaylistSearchList() {
         router.push("/logIn");
       }
       const logInUser = user.id;
-      console.log(logInUser);
       setUserID(logInUser);
 
       const playlist = data.items;
