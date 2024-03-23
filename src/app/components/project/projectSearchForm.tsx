@@ -17,8 +17,8 @@ function ProjectSearchForm() {
             // onChange={searchWordHandler}
           />
           <button
+            type="submit"
             className="w-20 h-12 bg-amber-400 text-black border-4 rounded-xl border-amber-900"
-            // onClick={searchVideoHandler}
           >
             검색
           </button>
