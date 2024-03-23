@@ -140,7 +140,7 @@ export type Enums<
 export interface Gathering {
   content: string;
   gathering: string;
-  stack: string[];
+  // stack: string[];
   title: string;
-  userId: string;
+  // userId: string;
 }

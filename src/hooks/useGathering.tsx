@@ -21,14 +21,14 @@ const useGathering = () => {
   // supabase 저장
   const addGathering = async ({
     gathering,
-    stack,
+    // stack,
     title,
     content,
-    userId,
-  }: Gathering) => {
+  }: // userId,
+  Gathering) => {
     const { data, error } = await supabase
       .from('gatherings')
-      .insert([{ gathering, stack, title, content, userId }])
+      .insert([{ gathering, title, content }])
       .select();
   };
 
