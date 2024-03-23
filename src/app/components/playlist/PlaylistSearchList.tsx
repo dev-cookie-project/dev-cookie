@@ -46,7 +46,12 @@ function PlaylistSearchList() {
       <div className="h-200 w-128 bg-orange-400 py-8 px-20">
         <div className="grid grid-rows-3 grid-cols-3 gap-4">
           {videos.map((video) => (
-            <div key={video.id.videoId}>
+            <form
+              key={video.id.videoId}
+              onSubmit={() => {
+                addNewPlaylist({ userID, video });
+              }}
+            >
               <div className="card card-compact w-80 h-80 bg-base-100 shadow-xl text-base">
                 <figure>
                   <iframe
@@ -59,17 +64,12 @@ function PlaylistSearchList() {
                   <h2 className="card-title text-sm">{video.snippet.title}</h2>
                 </div>
                 <div className="card-actions justify-end">
-                  <button
-                    onClick={() => {
-                      addNewPlaylist({ userID, video });
-                    }}
-                    className="btn btn-outline btn-success"
-                  >
+                  <button className="btn btn-outline btn-success">
                     Add List
                   </button>
                 </div>
               </div>
-            </div>
+            </form>
           ))}
         </div>
       </div>
