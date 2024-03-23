@@ -1,12 +1,13 @@
 "use client";
 import type { Video } from "@/types/playlistTypeIndex";
 
-import { useParams } from "next/navigation";
+import { supabase } from "@/hooks/useSupabase";
+import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import useMyPlayList from "../../../hooks/useMyPlayList";
-import { supabase } from "@/hooks/useSupabase";
 
 function PlaylistSearchList() {
+  const router = useRouter();
   const { id } = useParams();
   const [videos, setVideos] = useState<Video[]>([]);
   const [userID, setUserID] = useState("");
@@ -26,7 +27,10 @@ function PlaylistSearchList() {
       const {
         data: { user },
       } = await supabase.auth.getUser();
-      if (user === null) return alert("로그인 해주세요!");
+      if (user === null) {
+        return alert("로그인 해주세요!");
+        router.push("/logIn");
+      }
       const logInUser = user.id;
       console.log(logInUser);
       setUserID(logInUser);
@@ -35,7 +39,7 @@ function PlaylistSearchList() {
       setVideos(playlist);
     };
     getYoutubePlaylist();
-  }, [id, setUserID]);
+  }, [id, setUserID, router]);
 
   return (
     <>
