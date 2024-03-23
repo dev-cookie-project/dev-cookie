@@ -17,7 +17,7 @@ function ProjectSearchForm({ titleText }: SearchForm) {
 
   const searchHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!searchWord) {
+    if (!searchWord.trim()) {
       return alert("검색어를 입력해주세요.");
     }
     if (titleText.indexOf("노래") !== -1) {
