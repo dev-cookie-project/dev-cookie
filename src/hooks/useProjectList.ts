@@ -3,13 +3,24 @@ import { supabase } from "./useSupabase";
 
 function useProjectList() {
   const getDoneProjectList = async () => {
-    let { data: totalProjectList, error } = await supabase
+    let { data: doneProjectList, error } = await supabase
       .from("totalProjectList")
       .select(`*`)
       .eq("ongoing", "FALSE");
 
     if (error) return alert("error 발생!");
-    return totalProjectList;
+    return doneProjectList;
+  };
+
+  const getSearchDoneProjectList = async (searchWord: string) => {
+    let { data: searchDoneProjectList, error } = await supabase
+      .from("totalProjectList")
+      .select(`*`)
+      .eq("ongoing", "FALSE")
+      .contains("title", [`${searchWord}`]);
+
+    if (error) return alert("error 발생!");
+    return searchDoneProjectList;
   };
 
   const addProjectList = async (nextreview: Review) => {
@@ -29,7 +40,7 @@ function useProjectList() {
       .select();
   };
 
-  return { getDoneProjectList, addProjectList };
+  return { getDoneProjectList, addProjectList, getSearchDoneProjectList };
 }
 
 export default useProjectList;
