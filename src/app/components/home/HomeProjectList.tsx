@@ -1,9 +1,11 @@
 "use client";
 import uesHomeProjectList from "@/hooks/uesHomeProjectList";
-import { ReviewList, Reviews } from "@/types/projectReviewTypeIndex";
 import Image from "next/image";
+import cookieImage from "../../../../public/cookies.png";
 import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+
+import type { Reviews } from "@/types/projectReviewTypeIndex";
 
 function HomeProjectList() {
   const [projectTotalList, setProjectTotalList] = useState<Reviews[]>();
@@ -36,8 +38,9 @@ function HomeProjectList() {
           >
             <button onClick={(e) => goDetailpage(project.id)}>
               <figure>
+                {/* 이미지 부분은 나중에 대체될 예정입니다.(supabase store 사용) */}
                 <Image
-                  src="/cookies.png"
+                  src={cookieImage}
                   alt="프로젝트 대표 이미지입니다."
                   width="200"
                   height="200"
