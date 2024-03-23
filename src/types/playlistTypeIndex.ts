@@ -43,3 +43,7 @@ export type Playlist = {
 export type FindPlayList = {
   youtube: string;
 };
+
+export type SearchForm = {
+  titleText: string;
+};

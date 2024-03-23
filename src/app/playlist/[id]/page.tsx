@@ -1,5 +1,5 @@
 import PlaylistSearchList from "@/app/components/playlist/PlaylistSearchList";
-import ProjectSearchForm from "@/app/components/searchList/SearchForm";
+import ProjectSearchForm from "@/app/components/searchForm/SearchForm";
 
 function page() {
   return (

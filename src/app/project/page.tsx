@@ -1,6 +1,6 @@
 import Image from "next/image";
 import ProjectList from "../components/project/ProjectList";
-import ProjectSearchForm from "../components/searchList/SearchForm";
+import ProjectSearchForm from "../components/searchForm/SearchForm";
 
 function page() {
   return (

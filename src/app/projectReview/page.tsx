@@ -1,5 +1,5 @@
 import ProjectReviewList from "../components/projectReview/projectReviewList";
-import ProjectSearchForm from "../components/searchList/SearchForm";
+import ProjectSearchForm from "../components/searchForm/SearchForm";
 
 function page() {
   return (

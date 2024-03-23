@@ -2,9 +2,7 @@
 import { useParams, useRouter } from "next/navigation";
 import React, { useState } from "react";
 
-type SearchForm = {
-  titleText: string;
-};
+import type { SearchForm } from "@/types/playlistTypeIndex";
 
 function ProjectSearchForm({ titleText }: SearchForm) {
   const router = useRouter();
