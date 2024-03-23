@@ -1,7 +1,11 @@
 import Link from "next/link";
-import React from "react";
-
-function Aside({ props }: { props: React.ReactNode }) {
+import React, { Children, ReactNode } from "react";
+// { props }: { props: React.ReactNode }
+function Aside({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -31,7 +35,7 @@ function Aside({ props }: { props: React.ReactNode }) {
           </li>
         </ul>
       </div>
-      <div className="drawer-content">{props}</div>
+      <div className="drawer-content">{children}</div>
     </div>
   );
 }

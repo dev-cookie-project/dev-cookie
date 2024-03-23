@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="ko">
       <body>
         <TopNav />
-        <Aside props={children} />
+        <Aside>{children}</Aside>
         <Footer />
       </body>
     </html>
