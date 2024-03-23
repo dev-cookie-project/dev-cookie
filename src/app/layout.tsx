@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./share/reset.css";
+import "the-new-css-reset/css/reset.css";
 import "./globals.css";
 import Footer from "./share/Footer";
 import Aside from "./share/Aside";
