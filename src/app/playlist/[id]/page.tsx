@@ -1,11 +1,10 @@
 import PlaylistSearchList from "@/app/components/playlist/PlaylistSearchList";
-import PlaylistSearchForm from "@/app/components/playlist/PlaylistSearchForm";
-import React from "react";
+import ProjectSearchForm from "@/app/components/searchList/SearchForm";
 
 function page() {
   return (
     <>
-      <PlaylistSearchForm />
+      <ProjectSearchForm titleText="(아이콘) 코딩할 때 들을 노래를 선택해 보세요!" />
       <PlaylistSearchList />
     </>
   );

@@ -1,11 +1,11 @@
 import Image from "next/image";
-import ProjectSearchForm from "../components/project/ProjectSearchForm";
 import ProjectList from "../components/project/ProjectList";
+import ProjectSearchForm from "../components/searchList/SearchForm";
 
 function page() {
   return (
     <>
-      <ProjectSearchForm />
+      <ProjectSearchForm titleText="(아이콘) 멋진 프로젝트를 찾아보세요!" />
       <ProjectList />
     </>
   );

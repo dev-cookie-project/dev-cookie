@@ -1,31 +1,46 @@
 "use client";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import React, { useState } from "react";
 
-function PlaylistSearchform() {
-  const [searchWord, setSearchWord] = useState("");
-  const router = useRouter();
+type SearchForm = {
+  titleText: string;
+};
 
+function ProjectSearchForm({ titleText }: SearchForm) {
+  const router = useRouter();
+  const { id } = useParams();
+
+  const [searchWord, setSearchWord] = useState("");
   const searchWordHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
     setSearchWord(e.target.value);
   };
 
-  const searchVideoHandler = (e: React.FormEvent<HTMLFormElement>) => {
+  const searchHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!searchWord) {
       return alert("검색어를 입력해주세요.");
     }
-    router.push(`/playlist/${searchWord}`);
-    setSearchWord("");
+    if (titleText.indexOf("노래") !== -1) {
+      setSearchWord("");
+      router.push(`/playlist/${searchWord}`);
+    }
+    if (titleText.indexOf("리뷰") !== -1) {
+      setSearchWord("");
+      router.push(`/projectReview/${searchWord}`);
+    }
+    if (titleText.indexOf("참여") !== -1) {
+      setSearchWord("");
+      router.push(`/project/${searchWord}`);
+    }
   };
+
   return (
     <div className="w-128">
       <div className="h-48 w-128 flex flex-row items-center justify-center gap-8 text-black text-2xl bg-orange-300">
-        <div>(아이콘) 코딩할 때 들을 노래를 선택해 보세요!</div>
+        <div>{titleText}</div>
         <form
+          onSubmit={searchHandler}
           className="flex flex-row justify-center items-center gap-4"
-          onSubmit={searchVideoHandler}
         >
           <input
             type="text"
@@ -46,4 +61,4 @@ function PlaylistSearchform() {
   );
 }
 
-export default PlaylistSearchform;
+export default ProjectSearchForm;
