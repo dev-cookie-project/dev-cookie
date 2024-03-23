@@ -139,9 +139,7 @@ export type Enums<
 
 export interface Gathering {
   content: string;
-  created_at: string;
   gathering: string;
-  id: number;
   stack: string[];
   title: string;
   userId: string;
