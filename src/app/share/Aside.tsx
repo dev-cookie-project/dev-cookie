@@ -1,5 +1,5 @@
-import Link from "next/link";
-import React from "react";
+import Link from 'next/link';
+import React from 'react';
 
 function Aside({ props }: { props: React.ReactNode }) {
   return (
@@ -15,19 +15,19 @@ function Aside({ props }: { props: React.ReactNode }) {
         <ul className="menu font-semibold pt-24 w-80 min-h-full bg-orange-200 text-3xl gap-4 text-amber-950">
           {/* Sidebar content here */}
           <li>
-            <Link href={"/"}>Home</Link>
+            <Link href={'/'}>Home</Link>
           </li>
           <li>
-            <Link href={"/project"}>프로젝트/스터디 찾기</Link>
+            <Link href={'/project'}>프로젝트/스터디 찾기</Link>
           </li>
           <li>
-            <a>모임 만들기</a>
+            <Link href={'write'}>모임 만들기</Link>
           </li>
           <li>
-            <Link href={"/projectReview"}>프로젝트 리뷰</Link>
+            <Link href={'/projectReview'}>프로젝트 리뷰</Link>
           </li>
           <li>
-            <Link href={"/playlist/노동요"}>노동요 들으러 가기</Link>
+            <Link href={'/playlist/노동요'}>노동요 들으러 가기</Link>
           </li>
         </ul>
       </div>
