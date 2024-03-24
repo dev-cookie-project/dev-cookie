@@ -9,7 +9,6 @@ import PasswordIcon from "@/app/components/svg/passwordIcon";
 
 //회원가입
 const Signup = () => {
-  // const [nickname, setNickname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const id = useId();
@@ -20,11 +19,6 @@ const Signup = () => {
       const { data, error } = await supabase.auth.signUp({
         email,
         password,
-        // options: {
-        //   data: {
-        //     nickname,
-        //   },
-        // },
       });
       console.log(data);
       if (error) {
@@ -67,25 +61,6 @@ const Signup = () => {
   return (
     <div>
       <form onSubmit={handleSumbit}>
-        <label className="input input-bordered flex items-center gap-2">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 16 16"
-            fill="currentColor"
-            className="w-4 h-4 opacity-70"
-          >
-            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
-          </svg>
-          <input
-            type="text"
-            className="grow"
-            placeholder="닉네임을 입력해주세요."
-            // value={nickname}
-            // onChange={(e) => {
-            //   setNickname(e.target.value);
-            // }}
-          />
-        </label>
         <label
           htmlFor={id + "email"}
           className="input input-bordered flex items-center gap-2"
