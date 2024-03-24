@@ -18,7 +18,7 @@ function TagList() {
   return (
     <>
       <div className="h-48 w-128 flex flex-col items-center justify-center bg-orange-300">
-        <div className="h-36 w-129 bg-emerald-50 border-amber-800 rounded-xl p-4 text-black flex flex-col items-center justify-center gap-4">
+        <div className="h-36 w-130 bg-emerald-50 border-amber-800 rounded-xl p-4 text-black flex flex-col items-center justify-center gap-4">
           프로젝트는 어떠셨나요? 댓글과 태그로 알려주세요!
           <div className="flex flex-row items-center justify-center gap-4">
             {commentTagList.map((key) => {

@@ -9,7 +9,7 @@ function TagSelection() {
     <>
       {/* <form onSubmit={() => {postTagList(userID, title, active)}}> */}
       <div className="h-48 w-128 flex flex-col items-center justify-center gap-12 bg-transparent">
-        <div className="h-36 w-129 bg-emerald-50 border-amber-800 rounded-xl p-4 text-black flex flex-col items-center justify-center gap-4">
+        <div className="h-36 w-130 bg-emerald-50 border-amber-800 rounded-xl p-4 text-black flex flex-col items-center justify-center gap-4">
           여기에는 유저 정보가 들어갑니다.
           <div className="flex flex-row items-center justify-center gap-4">
             {active.map((key) => {
