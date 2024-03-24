@@ -4,20 +4,32 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import useProjectReviewList from "../../../hooks/useProjectList";
+import { useAtom } from "jotai";
+import { searchWordAtom } from "@/app/store/myStore";
 
 function ProjectReviewList() {
   const [projectReviewList, setProjectReviewList] = useState<ReviewList>();
-  const { getDoneProjectList } = useProjectReviewList();
+  const [searchWord] = useAtom<string>(searchWordAtom);
+  const { getDoneProjectList, getSearchDoneProjectList } =
+    useProjectReviewList();
   const router = useRouter();
 
   useEffect(() => {
     const getProjectDoneList = async () => {
-      const projectDoneList = (await getDoneProjectList()) as ReviewList;
-      setProjectReviewList(projectDoneList);
+      if (searchWord.length !== 0) {
+        const projectDoneList = (await getSearchDoneProjectList(
+          searchWord
+        )) as ReviewList;
+        setProjectReviewList(projectDoneList);
+      }
+      if (searchWord.length === 0) {
+        const projectDoneList = (await getDoneProjectList()) as ReviewList;
+        setProjectReviewList(projectDoneList);
+      }
     };
 
     getProjectDoneList();
-  }, [getDoneProjectList]);
+  }, [getDoneProjectList, getSearchDoneProjectList, searchWord]);
 
   if (!projectReviewList || projectReviewList === undefined)
     return <div>현재 프로젝트가 없습니다.</div>;
@@ -28,7 +40,7 @@ function ProjectReviewList() {
   return (
     <>
       <div className="h-200 w-128 bg-orange-400 py-8 px-20">
-        <div className="grid grid-rows-3 grid-cols-3 gap-4">
+        <div className="grid grid-rows-2 grid-cols-3 gap-4">
           {projectReviewList.map((project) => (
             <form onClick={(e) => goDetailpage(project.id)} key={project.id}>
               <div className="card card-compact w-80 h-80 bg-base-100 shadow-xl text-base">

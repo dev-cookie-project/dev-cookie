@@ -1,8 +1,10 @@
 "use client";
-import React, { useState } from "react";
+import { useAtom } from "jotai";
+import { hashAtom } from "@/app/store/myStore";
 
 function TagList() {
-  const [active, setActive] = useState<string[]>([]);
+  const [tags, setTags] = useAtom<string[]>(hashAtom);
+
   const commentTagList = [
     "보통이에요",
     "쉬웠어요",
@@ -16,21 +18,21 @@ function TagList() {
   return (
     <>
       <div className="h-48 w-128 flex flex-col items-center justify-center bg-orange-300">
-        <div className="h-36 w-129 bg-emerald-50 border-amber-800 rounded-xl p-4 text-black flex flex-col items-center justify-center gap-4">
+        <div className="h-36 w-130 bg-emerald-50 border-amber-800 rounded-xl p-4 text-black flex flex-col items-center justify-center gap-4">
           프로젝트는 어떠셨나요? 댓글과 태그로 알려주세요!
           <div className="flex flex-row items-center justify-center gap-4">
             {commentTagList.map((key) => {
-              const isActive = active.includes(key);
+              const isActive = tags.includes(key);
               return (
                 <button
                   key={key}
-                  onClick={() =>
-                    setActive(
+                  onClick={() => {
+                    setTags(
                       isActive
-                        ? active.filter((current) => current !== key)
-                        : [...active, key]
-                    )
-                  }
+                        ? tags.filter((hash) => hash !== key)
+                        : [...tags, key]
+                    );
+                  }}
                   className="btn bg-teal-200 border-teal-400 text-black border-4 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 focus:bg-violet-400"
                 >
                   <svg

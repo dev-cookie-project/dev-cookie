@@ -25,3 +25,16 @@ export type Reviews = {
 };
 
 export type ReviewList = Reviews[];
+
+export type NewRivewType = {
+  userID: string;
+  title: string;
+  tags: string[];
+};
+
+export type ReviewType = {
+  id: number;
+  userID: string;
+  title: string;
+  tags: string[];
+};
