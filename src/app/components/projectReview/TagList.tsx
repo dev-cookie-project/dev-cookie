@@ -1,6 +1,6 @@
 "use client";
 import { useAtom } from "jotai";
-import { hashAtom } from "@/app/store/ReviewSelectedTag";
+import { hashAtom } from "@/app/store/myStore";
 
 function TagList() {
   const [active, setActive] = useAtom<string[]>(hashAtom);
