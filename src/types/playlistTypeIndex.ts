@@ -36,10 +36,14 @@ export type Video = {
 };
 
 export type Playlist = {
-  userID: number;
+  userID: string;
   video: Video;
 };
 
 export type FindPlayList = {
   youtube: string;
+};
+
+export type SearchForm = {
+  titleText: string;
 };

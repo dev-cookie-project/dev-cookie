@@ -1,4 +1,3 @@
-import Link from "next/link";
 import HomeBanner from "./components/home/HomeBanner";
 import HomeProjectList from "./components/home/HomeProjectList";
 
