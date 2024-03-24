@@ -10,7 +10,7 @@ function Aside({
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
 
-      <div className="drawer-side ">
+      <div className="drawer-side">
         {/* <Image
           src=""
           alt="이미지"
