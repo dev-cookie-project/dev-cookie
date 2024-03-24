@@ -40,7 +40,6 @@ function TagSelection() {
     await addReview({ userID, title, tags });
     setTags([]);
   };
-  console.log(reviewList);
 
   return (
     <div>
