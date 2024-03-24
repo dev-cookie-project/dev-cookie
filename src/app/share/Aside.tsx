@@ -10,13 +10,13 @@ function Aside({
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
 
-      <div className="drawer-side ">
+      <div className="drawer-side">
         {/* <Image
           src=""
           alt="이미지"
           className="w-40 h-40 block mr-10 ease-in-out border"
         /> //로고 만들어서 넣을 예정입니다.*/}
-        <ul className="menu font-semibold pt-24 w-80 min-h-full bg-orange-200 text-3xl gap-4 text-amber-950">
+        <ul className="menu font-semibold pt-24 w-128 min-h-full bg-orange-200 text-3xl gap-4 text-amber-950">
           {/* Sidebar content here */}
           <li>
             <Link href={"/"}>Home</Link>
