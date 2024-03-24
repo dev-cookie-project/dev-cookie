@@ -4,7 +4,7 @@ function WritePage() {
   return (
     <>
       <div className="h-full bg-orange-300">
-        <div className="flex gap-12 h-20 ml-36 flex-row card bg-orange-300 rounded-box place-items-center">
+        <div className="flex gap-12 h-20 ml-72 flex-row card bg-orange-300 rounded-box place-items-center">
           <select className="select btn-outline w-70 bg-orange-300 text-black max-w-xs">
             <option disabled selected>
               모임 선택
@@ -22,13 +22,6 @@ function WritePage() {
             <option>Node.js</option>
             <option>Next.js</option>
             <option>Next.js</option>
-          </select>
-          <select className="select w-full btn-outline bg-orange-300 max-w-xs text-black">
-            <option disabled selected>
-              진행 상태
-            </option>
-            <option>모집중</option>
-            <option>완료</option>
           </select>
         </div>
         <div className="divider divider-neutral "></div>
