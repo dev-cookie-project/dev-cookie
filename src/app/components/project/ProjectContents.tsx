@@ -20,14 +20,12 @@ function ProjectContents() {
 
   // const getProjectSingleContents = async () => {
   //   const singleProjectHandler = (await getSingleProject(id[0])) as Reviews[];
-  //   console.log(singleProjectHandler);
   //   setSingleProject(singleProjectHandler[0]);
   // };
   // getProjectSingleContents();
 
   // if (!singleProject || singleProject === undefined)
   //   return <div>현재 프로젝트가 없습니다.</div>;
-  // console.log(singleProject);
 
   //에러가 발생해서 침묵해놓습니다.
 
