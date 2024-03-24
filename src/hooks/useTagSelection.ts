@@ -1,26 +1,5 @@
-import { useState } from "react";
+import type { NewRivewType } from "@/types/projectReviewTypeIndex";
 import { supabase } from "./useSupabase";
-
-export type NewRivewType = {
-  userID: string;
-  title: string;
-  tags: string[];
-};
-
-export type ReviewType = {
-  id: number;
-  userID: string;
-  title: string;
-  tags: string[];
-};
-
-type Tags = {
-  tags: string[];
-};
-
-type TagListType = {
-  tagList: Tags[];
-};
 
 const useTagSelection = () => {
   const getReviewlist = async (title: string) => {

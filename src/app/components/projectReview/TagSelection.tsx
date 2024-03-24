@@ -6,7 +6,7 @@ import { useAtom } from "jotai";
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import type { ReviewType } from "@/hooks/useTagSelection";
+import type { ReviewType } from "@/types/projectReviewTypeIndex";
 
 function TagSelection() {
   const [tags, setTags] = useAtom<string[]>(hashAtom);
