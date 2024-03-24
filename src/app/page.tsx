@@ -1,6 +1,7 @@
 import Link from "next/link";
 import HomeBanner from "./components/home/HomeBanner";
 import HomeProjectList from "./components/home/HomeProjectList";
+import CommentList from "./components/comment/CommentList";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <div className="h-200 w-128 px-4 bg-orange-400 flex justify-center items-center">
         <HomeProjectList />
       </div>
+      <CommentList />
     </>
   );
 }

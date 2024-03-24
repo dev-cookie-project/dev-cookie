@@ -98,77 +98,85 @@ const CommentList: React.FC = () => {
       </div>
       <CommentForm onCommentAdded={handleCommentAdded} />
       {comments.length > 0 ? (
-        <ul className="flex flex-col w-full bg-yellow-100">
+        <ul className="flex flex-col w-full">
           {comments.map((comment) => (
             <li
-              className="border-solid border rounded-md flex justify-between flex-row-reverse my-4 mx-24 h-52"
+              className="border-solid border rounded-md flex justify-between flex-row-reverse my-4 mx-24 h-full mb-10"
               key={comment.id}
             >
-              {editingCommentId === comment.id ? (
-                <>
-                  <div className="flex items-end flex-col w-full">
-                    <div className="flex-col mr-3">
-                      <button
-                        className="btn btn-active btn-neutral m-2"
-                        onClick={() => handleSave(comment.id)}
-                      >
-                        완료
-                      </button>
-                      <button
-                        className="btn btn-active btn-neutral"
-                        onClick={() => {
-                          setEditingCommentId(null);
-                          setTempContent("");
-                        }}
-                      >
-                        취소
-                      </button>
+              <div className="w-full">
+                {editingCommentId === comment.id ? (
+                  <div className="flex w-full">
+                    <div className="flex items-end flex-col w-full">
+                      <div className="flex w-full">
+                        <div className="flex flex-col gap-1 mt-6 ml-6 w-2/6">
+                          <h1 className="text-lg font-bold">
+                            작성자 ID: {comment.userId}
+                          </h1>
+                          <input
+                            className="text-sm"
+                            ref={editInputRef}
+                            type="text"
+                            value={tempContent}
+                            onChange={(e) => setTempContent(e.target.value)}
+                          />
+                        </div>
+                      </div>
                     </div>
-                    <div>
-                      <h1 className="bg-lime-500">
+                    <div className="flex items-end flex-col w-full">
+                      <div className="flex-col mr-3">
+                        <button
+                          className="btn btn-active btn-neutral m-2"
+                          onClick={() => handleSave(comment.id)}
+                        >
+                          완료
+                        </button>
+                        <button
+                          className="btn btn-active btn-neutral"
+                          onClick={() => {
+                            setEditingCommentId(null);
+                            setTempContent("");
+                          }}
+                        >
+                          취소
+                        </button>
+                      </div>
+                      <div className="mt-16 mr-2">
+                        <p>{new Date(comment.createdAt).toLocaleString()}</p>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="flex w-full">
+                    <div className="flex flex-col gap-1 mt-6 ml-6 w-full">
+                      <h1 className="text-lg font-bold">
                         작성자 ID: {comment.userId}
                       </h1>
+                      <p className="text-sm">{comment.content}</p>
                     </div>
-                    <input
-                      ref={editInputRef}
-                      type="text"
-                      value={tempContent}
-                      onChange={(e) => setTempContent(e.target.value)}
-                    />
-                    <div>
-                      <p className="mt-16 mr-2">
-                        {new Date(comment.createdAt).toLocaleString()}
-                      </p>
-                    </div>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <div className="flex items-end flex-col w-full">
-                    <div className="flex-col mr-3">
-                      <button
-                        className="btn btn-active btn-neutral m-2 "
-                        onClick={() => handleEdit(comment)}
-                      >
-                        수정
-                      </button>
-                      <button
-                        className="btn btn-active btn-neutral"
-                        onClick={() => handleRemoveComment(comment.id)}
-                      >
-                        삭제
-                      </button>
-                    </div>
-                    <div className="flex-col bg-sky-200 w-11/12 mr-36 h-full">
-                      <h1>작성자 ID: {comment.userId}</h1>
-                      <p>{comment.content}</p>
-                    </div>
-                    <div className="mt-16 mr-2">
-                      <p>{new Date(comment.createdAt).toLocaleString()}</p>
+                    <div className="flex items-end flex-col w-2/6">
+                      <div className="flex-col mr-3">
+                        <button
+                          className="btn btn-active btn-neutral m-2"
+                          onClick={() => handleEdit(comment)}
+                        >
+                          수정
+                        </button>
+                        <button
+                          className="btn btn-active btn-neutral"
+                          onClick={() => handleRemoveComment(comment.id)}
+                        >
+                          삭제
+                        </button>
+                      </div>
+
+                      <div className="mt-16 mr-2">
+                        <p>{new Date(comment.createdAt).toLocaleString()}</p>
+                      </div>
                     </div>
                   </div>
-                </>
-              )}
+                )}
+              </div>
             </li>
           ))}
         </ul>
