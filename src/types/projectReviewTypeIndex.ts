@@ -5,11 +5,10 @@ export type HashSelectionList = HashSelection[];
 
 export type Review = {
   userID: string;
-  created_at: string;
-  projectOrStudy: number;
+  projectOrStudy: string;
   title: string;
   contents: string;
-  heshSelection: string[];
+  heshSelection: string;
   ongoing: boolean;
 };
 
@@ -17,10 +16,10 @@ export type Reviews = {
   id: number;
   userID: string;
   created_at: string;
-  projectOrStudy: number;
+  projectOrStudy: string;
   title: string;
   contents: string;
-  heshSelection: string[];
+  heshSelection: string;
   ongoing: boolean;
 };
 

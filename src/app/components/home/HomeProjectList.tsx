@@ -48,7 +48,7 @@ function HomeProjectList() {
               </figure>
               <div className="card-body">
                 <h2 className="card-title">{project.title}</h2>
-                <p>{[...project.heshSelection]}</p>
+                <p>{project.heshSelection}</p>
                 <div className="card-actions justify-end">
                   <div className="badge badge-outline">{project.ongoing}</div>
                 </div>
