@@ -26,6 +26,9 @@ function ProjectSearchForm({ titleText }: SearchForm) {
   //   [debouncedSearchWordHandler]
   // );
 
+   const searchWordHandler = 
+    (e: React.ChangeEvent<HTMLInputElement>) => {setSearchWord(e.target.value)}
+
   // const searchDebounceHandler = useCallback(() => {})
   const searchHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -45,7 +48,7 @@ function ProjectSearchForm({ titleText }: SearchForm) {
       router.push(`/project/${searchWord}`);
       setSearchWord("");
     }
-  },[])
+  // },[])
 
   return (
     <div className="w-128">
