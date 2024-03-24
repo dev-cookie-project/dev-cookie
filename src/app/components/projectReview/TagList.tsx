@@ -1,8 +1,10 @@
 "use client";
-import React, { useState } from "react";
+import { useAtom } from "jotai";
+import { hashAtom } from "@/app/store/ReviewSelectedTag";
 
 function TagList() {
-  const [active, setActive] = useState<string[]>([]);
+  const [active, setActive] = useAtom<string[]>(hashAtom);
+
   const commentTagList = [
     "보통이에요",
     "쉬웠어요",
@@ -24,13 +26,13 @@ function TagList() {
               return (
                 <button
                   key={key}
-                  onClick={() =>
+                  onClick={() => {
                     setActive(
                       isActive
-                        ? active.filter((current) => current !== key)
+                        ? active.filter((hash) => hash !== key)
                         : [...active, key]
-                    )
-                  }
+                    );
+                  }}
                   className="btn bg-teal-200 border-teal-400 text-black border-4 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 focus:bg-violet-400"
                 >
                   <svg

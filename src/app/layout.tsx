@@ -6,6 +6,7 @@ import "./globals.css";
 import Footer from "./share/Footer";
 import Aside from "./share/Aside";
 import TopNav from "./share/topNav";
+import { Provider } from "jotai";
 
 const hiMelody = Hi_Melody({
   weight: "400",
@@ -23,12 +24,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className={hiMelody.className}>
-      <body>
-        <TopNav />
-        <Aside>{children}</Aside>
-        <Footer />
-      </body>
-    </html>
+    <Provider>
+      <html lang="ko" className={hiMelody.className}>
+        <body>
+          <TopNav />
+          <Aside>{children}</Aside>
+          <Footer />
+        </body>
+      </html>
+    </Provider>
   );
 }
