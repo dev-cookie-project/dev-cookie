@@ -14,18 +14,6 @@ function ProjectSearchForm({ titleText }: SearchForm) {
 
   const [searchWord, setSearchWord] = useAtom<string>(searchWordAtom);
 
-  // const debouncedSearchWordHandler = useMemo(
-  //   () => debounce((value: string) => setSearchWord(value), 300),
-  //   [setSearchWord] // 종속성 배열 비우기
-  // );
-
-  // const searchWordHandler = useCallback(
-  //   (e: React.ChangeEvent<HTMLInputElement>) => {
-  //     debouncedSearchWordHandler(e.target.value); // debouncedSearchWordHandler 호출
-  //   },
-  //   [debouncedSearchWordHandler]
-  // );
-
   const searchWordHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchWord(e.target.value);
   };
@@ -38,14 +26,6 @@ function ProjectSearchForm({ titleText }: SearchForm) {
     }
     if (titleText.indexOf("노래") !== -1) {
       router.push(`/playlist/${searchWord}`);
-      setSearchWord("");
-    }
-    if (titleText.indexOf("리뷰") !== -1) {
-      router.push(`/projectReview/${searchWord}`);
-      setSearchWord("");
-    }
-    if (titleText.indexOf("참여") !== -1) {
-      router.push(`/project/${searchWord}`);
       setSearchWord("");
     }
   };

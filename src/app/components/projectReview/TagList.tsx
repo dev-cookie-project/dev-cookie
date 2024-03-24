@@ -3,7 +3,7 @@ import { useAtom } from "jotai";
 import { hashAtom } from "@/app/store/myStore";
 
 function TagList() {
-  const [active, setActive] = useAtom<string[]>(hashAtom);
+  const [tags, setTags] = useAtom<string[]>(hashAtom);
 
   const commentTagList = [
     "보통이에요",
@@ -22,15 +22,15 @@ function TagList() {
           프로젝트는 어떠셨나요? 댓글과 태그로 알려주세요!
           <div className="flex flex-row items-center justify-center gap-4">
             {commentTagList.map((key) => {
-              const isActive = active.includes(key);
+              const isActive = tags.includes(key);
               return (
                 <button
                   key={key}
                   onClick={() => {
-                    setActive(
+                    setTags(
                       isActive
-                        ? active.filter((hash) => hash !== key)
-                        : [...active, key]
+                        ? tags.filter((hash) => hash !== key)
+                        : [...tags, key]
                     );
                   }}
                   className="btn bg-teal-200 border-teal-400 text-black border-4 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 focus:bg-violet-400"
