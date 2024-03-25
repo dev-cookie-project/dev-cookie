@@ -12,6 +12,17 @@ function useProjectList() {
     return doneProjectList;
   };
 
+  const getSingleProject = async (id: string) => {
+    let { data: singleProject, error } = await supabase
+      .from("totalProjectList")
+      .select(`*`)
+      .eq("id", [`${id}`])
+      .eq("ongoing", "FALSE");
+
+    if (error) return alert("error 발생!");
+    return singleProject;
+  };
+
   const getSearchDoneProjectList = async (searchWord: string) => {
     let { data: searchDoneProjectList, error } = await supabase
       .from("totalProjectList")
@@ -40,7 +51,12 @@ function useProjectList() {
       .select();
   };
 
-  return { getDoneProjectList, addProjectList, getSearchDoneProjectList };
+  return {
+    getDoneProjectList,
+    addProjectList,
+    getSearchDoneProjectList,
+    getSingleProject,
+  };
 }
 
 export default useProjectList;

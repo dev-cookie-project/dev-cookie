@@ -2,7 +2,7 @@
 
 import React, { useState, useId } from "react";
 
-import { supabase } from "@/app/lib/supabase/supabase";
+import { supabase } from "../../../hooks/useSupabase";
 
 import EmailIcon from "@/app/components/svg/emailIcon";
 import PasswordIcon from "@/app/components/svg/passwordIcon";
@@ -20,7 +20,6 @@ const Signup = () => {
         email,
         password,
       });
-      console.log(data);
       if (error) {
         console.error(error);
         alert("아이디와 비밀번호를 확인해주세요");

@@ -29,7 +29,7 @@ function ProjectReviewList() {
     };
 
     getProjectDoneList();
-  }, [getDoneProjectList, getSearchDoneProjectList, searchWord]);
+  }, []);
 
   if (!projectReviewList || projectReviewList === undefined)
     return <div>현재 프로젝트가 없습니다.</div>;
