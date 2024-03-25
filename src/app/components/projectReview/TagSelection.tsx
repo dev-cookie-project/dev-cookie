@@ -34,17 +34,16 @@ function TagSelection() {
       setUserID(user.id);
     };
     getUserInformation();
-  }, [router, setUserID, getReviewlist]);
+  }, []);
 
   const postTagListHandler = async () => {
     await addReview({ userID, title, tags });
     setTags([]);
   };
-  console.log(reviewList);
 
   return (
-    <div>
-      <form onSubmit={() => postTagListHandler()} className="w-128">
+    <div className="w-full flex flex-col items-center justify-center">
+      <form className="w-128" onSubmit={() => postTagListHandler()}>
         <div className="h-48 w-128 flex flex-col items-center justify-center gap-12 bg-transparent">
           <div className="h-36 w-130 bg-emerald-50 border-amber-800 rounded-xl p-4 text-black flex flex-col items-center justify-center gap-4">
             {userID}
@@ -52,6 +51,7 @@ function TagSelection() {
               {tags.map((tag) => {
                 return (
                   <>
+                    <div></div>
                     <button
                       key={tag}
                       className="btn text-black border-4 outline-none ring ring-violet-300 bg-violet-400 hover:bg-violet-500"
@@ -75,14 +75,14 @@ function TagSelection() {
                   </>
                 );
               })}
-              <button>등록</button>
             </div>
+            <button>등록</button>
           </div>
         </div>
       </form>
       {reviewList?.map((tag) => {
         return (
-          <form key={tag.id}>
+          <form className="w-full" key={tag.id}>
             <div className="h-48 w-128 flex flex-col items-center justify-center gap-12 bg-transparent">
               <div className="h-36 w-130 bg-emerald-50 border-amber-800 rounded-xl p-4 text-black flex flex-col items-center justify-center gap-4">
                 {tag.userID}

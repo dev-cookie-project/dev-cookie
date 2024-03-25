@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import { supabase } from "../../../utils/supabaseClient";
+import { supabase } from "../../../hooks/useSupabase";
 import { Comment } from "@/types/comment-types";
 import CommentForm from "./CommentForm";
 

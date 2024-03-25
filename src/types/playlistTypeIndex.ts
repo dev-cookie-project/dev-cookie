@@ -47,3 +47,10 @@ export type FindPlayList = {
 export type SearchForm = {
   titleText: string;
 };
+
+export type GetPlayListType = {
+  id: number;
+  userID: string;
+  created_at: string;
+  youtube: string;
+};

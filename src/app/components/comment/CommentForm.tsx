@@ -1,6 +1,8 @@
 "use client";
-import React, { useState } from "react";
-import { supabase } from "../../../utils/supabaseClient";
+import React, { useEffect, useState } from "react";
+import { supabase } from "@/hooks/useSupabase";
+import { useAtom } from "jotai";
+import { userIDAtom } from "@/app/store/myStore";
 
 interface CommentFormProps {
   onCommentAdded: () => void;
@@ -8,14 +10,29 @@ interface CommentFormProps {
 
 const CommentForm: React.FC<CommentFormProps> = ({ onCommentAdded }) => {
   const [content, setContent] = useState<string>("");
+  const [userID, setUserID] = useAtom<string>(userIDAtom);
+
+  useEffect(() => {
+    const userInformation = async () => {
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+      if (user === null) {
+        return;
+      }
+      const logInUser = user.id;
+      setUserID(logInUser);
+    };
+    userInformation();
+  });
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!content.trim()) return;
 
-    const userId = "1"; // 사용자 인증 로직에 따라 변경될 수 있음
-    const createdAt = new Date().toISOString();
+    const userId = userID; // 사용자 인증 로직에 따라 변경될 수 있음
+    const createdAt = new Date().toISOString;
 
     try {
       const { data, error } = await supabase.from("comments").insert([

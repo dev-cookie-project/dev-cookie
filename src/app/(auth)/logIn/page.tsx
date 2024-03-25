@@ -1,19 +1,22 @@
 "use client";
 
-import React, { useState, useId } from "react";
+import React, { useState, useId, useEffect } from "react";
 
-import { supabase } from "@/app/lib/supabase/supabase";
+import { supabase } from "../../../hooks/useSupabase";
 
 import Link from "next/link";
 
 import { useRouter } from "next/navigation";
 import EmailIcon from "@/app/components/svg/emailIcon";
 import PasswordIcon from "@/app/components/svg/passwordIcon";
+import { useAtom } from "jotai";
+import { userIDAtom } from "@/app/store/myStore";
 
 //회원가입
 const Login = () => {
   const router = useRouter();
   const id = useId();
+  const [userID, setUserID] = useAtom<string>(userIDAtom);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -71,6 +74,20 @@ const Login = () => {
     });
     alert("로그인이 완료되었습니다.");
   }
+
+  useEffect(() => {
+    const userInformation = async () => {
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+      if (user === null) {
+        return;
+      }
+      const logInUser = user.id;
+      setUserID(logInUser);
+    };
+    userInformation();
+  });
 
   return (
     <div className="card w-100 flex flex-col justify-center item-center">

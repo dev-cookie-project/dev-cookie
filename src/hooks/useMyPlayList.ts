@@ -4,16 +4,14 @@ import { useState } from "react";
 import { supabase } from "./useSupabase";
 
 function useMyPlayList() {
-  const [list, setList] = useState<Playlist[]>();
-
   const getPlaylist = async (userID: string) => {
     const { data: playList, error } = await supabase
       .from("musicList")
-      .select(`*, youtube`)
-      .eq(`userID`, userID);
+      .select("*")
+      .eq("userID", userID);
     if (!playList) return;
-    setList(playList);
     if (error) return alert("error 발생!");
+    return playList;
   };
 
   const addPlaylist = async ({ userID, video }: Playlist) => {
