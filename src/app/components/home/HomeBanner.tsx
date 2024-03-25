@@ -3,8 +3,10 @@ import cookieImage from "../../../../public/cookies.png";
 
 function HomeBanner() {
   return (
-    <div className="h-36 w-128 bg-white">
-      <div className="carousel w-full">
+    <div className="h-36 w-128 pl-8 pt-8 bg-white text-3xl text-black text-amber-950 font-bold">
+      프로젝트 / 팀원 모집, 더 이상 고민하지 마세요!{" "}
+      <p>DevCookie에서 스터디부터 프로젝트까지 한 번에 해결해드립니다.</p>
+      <div className="carousel w-full ">
         <div className="carousel-item relative w-full">
           {/* <Image
             src={cookieImage}

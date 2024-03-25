@@ -4,7 +4,7 @@ import HomeProjectList from "./components/home/HomeProjectList";
 export default function Home() {
   return (
     <>
-      <div className="h-48 w-128 flex flex-col items-center justify-center bg-orange-300">
+      <div className="h-48 w-128 flex flex-col items-center justify-center bg-white">
         <HomeBanner />
       </div>
 
