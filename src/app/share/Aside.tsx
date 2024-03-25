@@ -18,9 +18,7 @@ function Aside({
         /> //로고 만들어서 넣을 예정입니다.*/}
         <ul className="menu font-semibold pt-24 w-128 min-h-full bg-orange-200 text-3xl gap-4 text-amber-950">
           {/* Sidebar content here */}
-          <li>
-            <Link href={"/"}>Home</Link>
-          </li>
+          {/* <li><Link href={"/"}>Home</Link></li> */}
           <li>
             <Link href={"/project"}>프로젝트/스터디 찾기</Link>
           </li>
