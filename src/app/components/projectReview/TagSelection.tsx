@@ -34,7 +34,7 @@ function TagSelection() {
       setUserID(user.id);
     };
     getUserInformation();
-  }, [router, setUserID, getReviewlist]);
+  }, []);
 
   const postTagListHandler = async () => {
     await addReview({ userID, title, tags });
@@ -43,7 +43,7 @@ function TagSelection() {
 
   return (
     <div>
-      <form onSubmit={() => postTagListHandler()} className="w-128">
+      <form onSubmit={() => postTagListHandler()} className="w-129">
         <div className="h-48 w-128 flex flex-col items-center justify-center gap-12 bg-transparent">
           <div className="h-36 w-130 bg-emerald-50 border-amber-800 rounded-xl p-4 text-black flex flex-col items-center justify-center gap-4">
             {userID}
@@ -74,8 +74,8 @@ function TagSelection() {
                   </>
                 );
               })}
-              <button>등록</button>
             </div>
+            <button>등록</button>
           </div>
         </div>
       </form>
