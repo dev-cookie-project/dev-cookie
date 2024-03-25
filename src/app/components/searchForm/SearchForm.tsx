@@ -1,34 +1,32 @@
 "use client";
 import { useParams, useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useCallback, useMemo } from "react";
 
-import type { SearchForm } from "@/types/playlistTypeIndex";
+import { searchWordAtom } from "@/app/store/myStore";
+import { useAtom } from "jotai";
+import { debounce } from "lodash";
+import { SearchForm } from "@/types/playlistTypeIndex";
 
 function ProjectSearchForm({ titleText }: SearchForm) {
   const router = useRouter();
   const { id } = useParams();
+  const _ = require("lodash");
 
-  const [searchWord, setSearchWord] = useState("");
+  const [searchWord, setSearchWord] = useAtom<string>(searchWordAtom);
+
   const searchWordHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchWord(e.target.value);
   };
 
   const searchHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     if (!searchWord.trim()) {
       return alert("검색어를 입력해주세요.");
     }
     if (titleText.indexOf("노래") !== -1) {
-      setSearchWord("");
       router.push(`/playlist/${searchWord}`);
-    }
-    if (titleText.indexOf("리뷰") !== -1) {
       setSearchWord("");
-      router.push(`/projectReview/${searchWord}`);
-    }
-    if (titleText.indexOf("참여") !== -1) {
-      setSearchWord("");
-      router.push(`/project/${searchWord}`);
     }
   };
 

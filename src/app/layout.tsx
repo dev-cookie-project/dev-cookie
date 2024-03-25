@@ -6,6 +6,7 @@ import "./globals.css";
 import Footer from "./share/Footer";
 import Aside from "./share/Aside";
 import TopNav from "./share/topNav";
+import { Provider } from "jotai";
 
 const NotoSansFont = Noto_Sans_KR({
   weight: "400",

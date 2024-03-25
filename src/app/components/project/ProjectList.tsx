@@ -1,11 +1,16 @@
 "use client";
 import useOngoingProjectList from "@/hooks/useOngoingProjectList";
-import { ReviewList } from "@/types/projectReviewTypeIndex";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { searchWordAtom } from "@/app/store/myStore";
+import { useAtom } from "jotai";
+
+import type { ReviewList } from "@/types/projectReviewTypeIndex";
 
 function ProjectList() {
+  const [searchWord, setSearchWord] = useAtom<string>(searchWordAtom);
+
   const [projectOngoingList, setOngoingProjectList] = useState<ReviewList>();
   const router = useRouter();
 
