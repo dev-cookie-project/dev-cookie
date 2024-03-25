@@ -19,7 +19,7 @@ function HomeProjectList() {
     };
 
     getProjectTotalList();
-  }, [getTotalProjectList]);
+  }, []);
 
   if (!projectTotalList || projectTotalList === undefined)
     return <div>현재 프로젝트가 없습니다.</div>;
@@ -27,7 +27,6 @@ function HomeProjectList() {
   const goDetailpage = (id: number) => {
     router.push(`/project/${id}`);
   };
-
   return (
     <div className="carousel rounded-box flex gap-12 px-8">
       <div className="carousel-item gap-12 ">
