@@ -37,7 +37,6 @@ function Mypage() {
     };
     getUserInformation();
   }, []);
-  console.log(youTubeAddressList);
   return (
     <>
       <div className="h-full bg-orange-300">
