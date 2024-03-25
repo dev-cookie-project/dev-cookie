@@ -2,7 +2,7 @@
 
 import React, { useState, useId } from "react";
 
-import { supabase } from "@/app/lib/supabase/supabase";
+import { supabase } from "../../../hooks/useSupabase";
 
 import EmailIcon from "@/app/components/svg/emailIcon";
 import PasswordIcon from "@/app/components/svg/passwordIcon";

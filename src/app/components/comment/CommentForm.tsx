@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { supabase } from "../../../utils/supabaseClient";
+import { supabase } from "@/hooks/useSupabase";
 import { useAtom } from "jotai";
 import { userIDAtom } from "@/app/store/myStore";
 

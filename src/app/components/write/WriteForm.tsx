@@ -25,8 +25,8 @@ function WriteForm() {
 
   const { addProjectList } = useProjectList();
   const addProjectHandler = async () => {
-    if (!title || !contents || !skill || !gather) {
-      return alert("모든 항목을 입력해야 합니다.");
+    if (title === "" || contents === "") {
+      return alert("제목과 내용은 필수입니다.");
     }
     await addProjectList(nextreview);
     alert("등록이 완료되었습니다.");
@@ -67,7 +67,6 @@ function WriteForm() {
             <option>React</option>
             <option>TypeScript</option>
             <option>Node.js</option>
-            <option>Next.js</option>
             <option>Next.js</option>
           </select>
         </div>

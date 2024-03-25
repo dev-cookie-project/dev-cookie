@@ -9,7 +9,7 @@ import Image from "next/image";
 import cookies from "../../../public/cookies.png";
 import useMyPlayList from "@/hooks/useMyPlayList";
 
-import { supabase } from "../lib/supabase";
+import { supabase } from "../../hooks/useSupabase";
 
 function Mypage() {
   const router = useRouter();

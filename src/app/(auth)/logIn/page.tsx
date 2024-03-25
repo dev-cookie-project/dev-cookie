@@ -2,7 +2,7 @@
 
 import React, { useState, useId, useEffect } from "react";
 
-import { supabase } from "@/app/lib/supabase/supabase";
+import { supabase } from "../../../hooks/useSupabase";
 
 import Link from "next/link";
 
