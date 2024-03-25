@@ -29,8 +29,12 @@ export default function TopNav() {
 
   return (
     <>
-      <div className="navbar bg-orange-400">
-        <div className="flex-1"></div>
+      <div className="navbar bg-orange-400 pt-4 pb-4">
+        <div className="flex-1">
+          <div className="text-black text-4xl ml-6 text-amber-950 font-bold">
+            <Link href={"/"}>DevCookie</Link>
+          </div>
+        </div>
         <div className="flex-none gap-2">
           <div className="form-control">
             <input
