@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 사이트명
 
-## Getting Started
+### DevCookie (Dev + Cookie)
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 💻 프로젝트 소개
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+다양한 모양과 맛의 쿠키처럼 다양한 개발자들이 모여 유익한 정보를 공유하기 위해
+프로젝트 또는 스터디 팀원을 모집하며 소통하는 플랫폼입니다.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### 개발 환경 및 도구
+* npm
+* TypeScript
+* Next.js
+* Tailwindcss + daisyUi
 
-## Learn More
+## ⚙️ 개발 기간
 
-To learn more about Next.js, take a look at the following resources:
+2024.03.18(월) ~ 2024.03.25(월) | 실제 개발 기간 : 5일
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## ⚒️ 주요 기능
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<img width="1253" alt="image" src="https://github.com/dev-cookie-project/dev-cookie/assets/154496294/22658623-3d70-4656-a6a8-e9965e55d5d1">
 
-## Deploy on Vercel
+* 이메일, 비밀번호를 기입하여 회원가입을 할 수 있습니다.
+* 회원가입 정보를 바탕으로 로그인이 가능합니다.
+* 구글 , 깃헙을 이용하여 로그인 및 회원가입을 할 수 있습니다.
+* 모임 만들기를 클릭 시, 게시글 작성페이지로 넘어가며 프로젝트 / 스터디 중 선택하여 게시글을 생성할 수 있습니다.
+* 홈 화면에서는 작성한 페이지의 프로젝트를 한 번에 볼 수 있습니다.
+* 노동요 들으러 가기 클릭 시, 유튜브 재생목록을 볼 수 있습니다.
+* 유튜브 재생목록의 Add List를 클릭하면 사용자마다 자신의 플레이리스트를 만들 수 있습니다.
+* 프로젝트 리뷰 하기 클릭 시, 해당 프로젝트에 대한 후기를 버튼 클릭으로 남길 수 있습니다.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 🚨 문제 및 해결
+
+문제 1. 
+
